@@ -1,4 +1,4 @@
-<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="org.moscowicc.fp_test1" version="1.0.0">
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="org.moscowicc.first_principles" version="1.0.0">
  
 <name>First Principles Russian</name>
 
@@ -15,34 +15,34 @@
   	<icon src="icon.png" />
   
   	<!-- Android icons -->
-	<icon src="images/icons/36x36.png" gap:platform="android" width="36" height="36" />
-	<icon src="images/icons/48x48.png" gap:platform="android" gap:density="ldpi" />
-	<icon src="images/icons/48x48.png" gap:platform="android" width="48" height="48" />
-	<icon src="images/icons/72x72.png" gap:platform="android" gap:density="mdpi" />
-	<icon src="images/icons/72x72.png" gap:platform="android" width="72" height="72" />
-	<icon src="images/icons/96x96.png" gap:platform="android" gap:density="hdpi" />
-	<icon src="images/icons/96x96.png" gap:platform="android" width="96" height="96" />
-	<icon src="images/icons/114x114.png" gap:platform="android" gap:density="xhdpi" />
+	<icon src="lang/ru/images/icons/36x36.png" gap:platform="android" width="36" height="36" />
+	<icon src="lang/ru/images/icons/48x48.png" gap:platform="android" gap:density="ldpi" />
+	<icon src="lang/ru/images/icons/48x48.png" gap:platform="android" width="48" height="48" />
+	<icon src="lang/ru/images/icons/72x72.png" gap:platform="android" gap:density="mdpi" />
+	<icon src="lang/ru/images/icons/72x72.png" gap:platform="android" width="72" height="72" />
+	<icon src="lang/ru/images/icons/96x96.png" gap:platform="android" gap:density="hdpi" />
+	<icon src="lang/ru/images/icons/96x96.png" gap:platform="android" width="96" height="96" />
+	<icon src="lang/ru/images/icons/114x114.png" gap:platform="android" gap:density="xhdpi" />
 	
 	<!-- Android splash -->
-	<gap:splash src="images/splash/320x480.png" gap:platform="android" gap:density="ldpi" />
-	<gap:splash src="images/splash/480x800.png" gap:platform="android" gap:density="mdpi" />
-	<gap:splash src="images/splash/640x960.png" gap:platform="android" gap:density="hdpi" />
-	<gap:splash src="images/splash/640x960.png" gap:platform="android" gap:density="xhdpi" />
+	<gap:splash src="lang/ru/images/splash/320x480.png" gap:platform="android" gap:density="ldpi" />
+	<gap:splash src="lang/ru/images/splash/480x800.png" gap:platform="android" gap:density="mdpi" />
+	<gap:splash src="lang/ru/images/splash/640x960.png" gap:platform="android" gap:density="hdpi" />
+	<gap:splash src="lang/ru/images/splash/640x960.png" gap:platform="android" gap:density="xhdpi" />
 	
 	<!-- iOS icons -->
-	<icon src="images/icons/57x57.png" width="57" height="57" />
-	<icon src="images/icons/72x72.png" gap:platform="ios" width="72" height="72" />
-	<icon src="images/icons/114x114.png" width="114" height="114" />
-	<icon src="images/icons/144x144.png" width="144" height="144" />
+	<icon src="lang/ru/images/icons/57x57.png" width="57" height="57" />
+	<icon src="lang/ru/images/icons/72x72.png" gap:platform="ios" width="72" height="72" />
+	<icon src="lang/ru/images/icons/114x114.png" width="114" height="114" />
+	<icon src="lang/ru/images/icons/144x144.png" width="144" height="144" />
 
 	<!-- iOS splash -->
-	<gap:splash src="images/splash/320x480.png" gap:platform="ios" width="320" height="480" />
-	<gap:splash src="images/splash/640x960.png" gap:platform="ios" width="640" height="960" />
-	<gap:splash src="images/splash/768x1024.png" gap:platform="ios" width="768" height="1024" />
-	<gap:splash src="images/splash/1024x768.png" gap:platform="ios" width="1024" height="768" />
-	<gap:splash src="images/splash/1536x2008.png" gap:platform="ios" width="1536" height="2008" />
-	<gap:splash src="images/splash/2048x1496.png" gap:platform="ios" width="2048" height="1496" />
+	<gap:splash src="lang/ru/images/splash/320x480.png" gap:platform="ios" width="320" height="480" />
+	<gap:splash src="lang/ru/images/splash/640x960.png" gap:platform="ios" width="640" height="960" />
+	<gap:splash src="lang/ru/images/splash/768x1024.png" gap:platform="ios" width="768" height="1024" />
+	<gap:splash src="lang/ru/images/splash/1024x768.png" gap:platform="ios" width="1024" height="768" />
+	<gap:splash src="lang/ru/images/splash/1536x2008.png" gap:platform="ios" width="1536" height="2008" />
+	<gap:splash src="lang/ru/images/splash/2048x1496.png" gap:platform="ios" width="2048" height="1496" />
 
  
  <preference name="SplashScreenDelay" value="4000" />

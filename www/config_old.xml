@@ -30,7 +30,7 @@
 	<icon src="96x96.png" gap:platform="android" width="96" height="96" />
 	<icon src="114x114.png" gap:platform="android" gap:density="xhdpi" />
 	
-	<icon src="Icon.png" />
+	<icon src="icon.png" />
 	
 	<!-- Android splash -->
 	<gap:splash src="320x480.png" gap:platform="android" gap:density="ldpi" />
