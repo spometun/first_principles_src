@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<widget xmlns = "http://www.w3.org/ns/widgets" xmlns:gap = "http://phonegap.com/ns/1.0" id = "org.usd21.firstprinciples" versionCode="22" version = "2.2">
+
+	<name>First Principles</name>
+
+	<description>
+	The elementary teachings, according to the scriptures of the Bible, about what it means to be a disciple of Jesus.
+	</description>
+
+	<author href="http://usd21.org/m/" email="firstprinciples@usd21.org">
+	Kip McKean
+	</author>
+
+	<access origin="*" />
+	<preference name="permissions" value="none"/>
+	<preference name="orientation" value="auto" />
+	<preference name="android-installLocation" value="auto" />
+	<preference name="phonegap-version" value="2.9.0" />
+	<preference name="show-splash-screen-spinner" value="false" />
+	<preference name="prerendered-icon" value="true" />
+	<preference name="splash-screen-duration" value="5000" />
+	
+	<!-- Android icons -->
+	<icon src="36x36.png" gap:platform="android" width="36" height="36" />
+	<icon src="48x48.png" gap:platform="android" gap:density="ldpi" />
+	<icon src="48x48.png" gap:platform="android" width="48" height="48" />
+	<icon src="72x72.png" gap:platform="android" gap:density="mdpi" />
+	<icon src="72x72.png" gap:platform="android" width="72" height="72" />
+	<icon src="96x96.png" gap:platform="android" gap:density="hdpi" />
+	<icon src="96x96.png" gap:platform="android" width="96" height="96" />
+	<icon src="114x114.png" gap:platform="android" gap:density="xhdpi" />
+	
+	<icon src="icon.png" />
+	
+	<!-- Android splash -->
+	<gap:splash src="320x480.png" gap:platform="android" gap:density="ldpi" />
+	<gap:splash src="480x800.png" gap:platform="android" gap:density="mdpi" />
+	<gap:splash src="640x960.png" gap:platform="android" gap:density="hdpi" />
+	<gap:splash src="1280x1920.png" gap:platform="android" gap:density="xhdpi" />
+	
+	<!-- iOS icons -->
+	<icon src="57x57.png" width="57" height="57" />
+	<icon src="72x72.png" gap:platform="ios" width="72" height="72" />
+	<icon src="114x114.png" width="114" height="114" />
+	<icon src="144x144.png" width="144" height="144" />
+
+	<!-- iOS splash -->
+	<gap:splash src="320x480.png" gap:platform="ios" width="320" height="480" />
+	<gap:splash src="640x960.png" gap:platform="ios" width="640" height="960" />
+	<gap:splash src="768x1024.png" gap:platform="ios" width="768" height="1024" />
+	<gap:splash src="1024x768.png" gap:platform="ios" width="1024" height="768" />
+	<gap:splash src="1536x2008.png" gap:platform="ios" width="1536" height="2008" />
+	<gap:splash src="2048x1496.png" gap:platform="ios" width="2048" height="1496" />
+
+</widget>

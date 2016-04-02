@@ -1,0 +1,245 @@
+<!DOCTYPE html> 
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+	<title>Persecution</title>
+	<link rel="stylesheet" type="text/css" href="style.css" />
+	<link rel="stylesheet" type="text/css" href="jquery/jquery.mobile-1.1.0.min.css" />
+	<script type="text/javascript" src="jquery/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="jquery/jquery.mobile-1.1.0.min.js"></script>
+	<link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
+	<link rel="apple-touch-icon" href="images/apple-touch-icon-precomposed.png" />
+	<link rel="shortcut icon" href="images/favicon.ico" />
+</head>
+<body>
+
+<div data-role="page" data-dom-cache="true" id="persecution" data-title="Persecution">
+	<div data-role="header" data-theme="b">
+		<h1><span id = "lesson_headline">Persecution *</span></h1>
+        <a href="./index.html" rel = "external" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
+	</div>
+	<div data-role="content" data-theme="d">
+	
+		<div class="usd21audio">
+		<div class="usd21audiodownload">
+		Download audio: &nbsp;
+		<a href="http://www.usd21.org/m/lang/en/fp/audio/mp3/16-Persecution.mp3" rel="external">MP3</a> | 
+		<a href="http://www.usd21.org/m/lang/en/fp/audio/m4a/16-Persecution.m4a" rel="external">M4A</a> | 
+		<a href="http://www.usd21.org/m/lang/en/fp/audio/ogg/16-Persecution.ogg" rel="external">OGG</a>
+		</div>
+		<audio controls="controls">
+			<source src="http://www.usd21.org/m/lang/en/fp/audio/ogg/16-Persecution.ogg" type="audio/ogg" />
+			<source src="http://www.usd21.org/m/lang/en/fp/audio/m4a/16-Persecution.m4a" type="audio/aac" />
+			<source src="http://www.usd21.org/m/lang/en/fp/audio/mp3/16-Persecution.mp3" type="audio/mpeg" />
+		</audio>
+		</div>
+
+    <strong><span id = "phrases.p1">Introduction</span></strong><span id = "phrases.p2"> &mdash; </span><strong><a data-rel="dialog" href="scriptures/2-timothy-3-12.html" id = "link.2-timothy_3:12"><span id = "phrases.p3">2 Timothy 3:12</span></a></strong><span id = "phrases.p4">:  Everyone who wants to live as a disciple will be persecuted.
+    </span><br>
+    <ol>
+    	<li><strong><span id = "phrases.p5">Jesus was persecuted.</span></strong>
+        	<ol>
+            	<li><strong><span id = "phrases.p6">Family</span></strong>
+                	<ol>
+                    	<li><strong><a data-rel="dialog" href="scriptures/mark-3-20-21.html" id = "link.mark_3:20-21"><span id = "phrases.p7">Mark 3:20-21</span></a></strong><span id = "phrases.p8">:  Jesus' family thought that he was out of His mind (brain washed; mind-control).</span></li>
+                        <li><strong><a data-rel="dialog" href="scriptures/mark-3-31-35.html" id = "link.mark_3:31-35"><span id = "phrases.p9">Mark 3:31-35</span></a></strong><span id = "phrases.p10">:  Jesus prioritized His spiritual family above His physical family.</span></li>
+                        <li><strong><a data-rel="dialog" href="scriptures/acts-1-12-14.html" id = "link.acts_1:12-14"><span id = "phrases.p11">Acts 1:12-14</span></a></strong><span id = "phrases.p12">:  This conviction produces conflict.  However, after His resurrection and ascension, His mother and brothers were disciples.</span></li>
+                    </ol>
+                </li>
+                <li><strong><span id = "phrases.p13">Gossip and slander</span></strong>
+                	<ol>
+                    	<li><strong><a data-rel="dialog" href="scriptures/john-7-12-13.html" id = "link.john_7:12-13"><span id = "phrases.p14">John 7:12-13</span></a></strong><span id = "phrases.p15">:  Jesus was accused of deceiving people.</span></li>
+                        <li><strong><a data-rel="dialog" href="scriptures/john-10-19-21.html" id = "link.john_10:19-21"><span id = "phrases.p16">John 10:19-21</span></a></strong><span id = "phrases.p17">:  The Jews &mdash; religious people &mdash; intensely persecuted Jesus through name-calling and character assassination.  Jesus' teaching always divided His listeners.</span></li>
+                    </ol>
+                </li>
+                <li><strong><span id = "phrases.p18">Scope of persecution</span></strong>
+                	<ol>
+                    	<li><strong><a data-rel="dialog" href="scriptures/luke-23-1-3.html" id = "link.luke_23:1-3"><span id = "phrases.p19">Luke 23:1-3</span></a></strong><span id = "phrases.p20">:  Jesus is condemned to a death by crucifixion through half-truths.</span></li>
+                        <li><span id = "phrases.p21">Jesus &mdash; who was perfect &mdash; was falsely accused and misunderstood by His family and killed by religious leaders.  What do you think will happen to you if you follow Jesus?</span></li>
+                    </ol>
+                </li>
+            </ol>
+        </li>
+        <li><strong><span id = "phrases.p22">The First Century Church was persecuted.</span></strong>
+        	<ol>
+            	<li><strong><a data-rel="dialog" href="scriptures/acts-5-17-18-38-42.html" id = "link.acts_5:17-18:38"><span id = "phrases.p23">Acts 5:17-18, 38-42</span></a></strong>
+                	<ol>
+                    	<li><span id = "phrases.p24">The Jewish leadership arrested the apostles for preaching the Word, because of jealousy.</span></li>
+                        <li><span id = "phrases.p25">Those who persecuted the Christians thought that they were doing this for God, though in fact they were fighting against Him.</span></li>
+                        <li><span id = "phrases.p26">The apostles suffered physical mistreatment.</span></li>
+                        <li><span id = "phrases.p27">Persecution did not stop the disciples from daily proclamation.</span></li>
+                    </ol>
+                </li>
+                <li><strong><a data-rel="dialog" href="scriptures/acts-28-21-22.html" id = "link.acts_28:21-22"><span id = "phrases.p28">Acts 28:21-22</span></a></strong>
+                	<ol>
+                    	<li><span id = "phrases.p29">Everywhere, the church was highly controversial.</span></li>
+                        <li><span id = "phrases.p30">The church was called a "sect" (cult).</span></li>
+                        <li><span id = "phrases.p31">Since the International Christian Churches have the goal of imitating Jesus and the first century church, what will happen to us?  If a church is not being persecuted, what does that imply?</span></li>
+                    </ol>
+                </li>
+            </ol>
+        </li>
+        <li><strong><span id = "phrases.p32">Causes of persecution.  </span><a data-rel="dialog" href="scriptures/1-timothy-4-16.html" id = "link.1-timothy_4:16"><span id = "phrases.p33">1 Timothy 4:16</span></a><span id = "phrases.p34"> &mdash; Life and Doctrine</span></strong>
+        	<ol>
+            	<li><strong><span id = "phrases.p35">Life</span></strong>
+                	<ol>
+                    	<li><strong><a data-rel="dialog" href="scriptures/1-peter-4-3-4.html" id = "link.1-peter_4:3-4"><span id = "phrases.p36">1 Peter 4:3-4</span></a></strong><span id = "phrases.p37">:  The world feels condemned by those who no longer participate in its sin.</span></li>
+                        <li><strong><a data-rel="dialog" href="scriptures/1-peter-4-12-16.html" id = "link.1-peter_4:12-16"><span id = "phrases.p38">1 Peter 4:12-16</span></a></strong><span id = "phrases.p39">:  Do not be surprised or ashamed by persecution, but be sure you are persecuted for righteousness' sake.</span></li>
+                    </ol>
+                </li>
+                <li><strong><span id = "phrases.p40">Doctrine</span></strong>
+                	<ol>
+                    	<li><span id = "phrases.p41">Preaching the Word &mdash; </span><strong><a data-rel="dialog" href="scriptures/john-15-18-20-16-1-4.html" id = "link.john_15:18-20:16"><span id = "phrases.p42">John 15:18-20, 16:1-4</span></a></strong>
+                        	<ol>
+                            	<li><span id = "phrases.p43">Jesus warns that persecution comes to those who preach the same message as Him.</span></li>
+                                <li><span id = "phrases.p44">Jesus warns that the price of hatred is certain, and perhaps even death.</span></li>
+                            </ol>
+                        </li>
+                        <li><span id = "phrases.p45">Narrow Road of Salvation &mdash; </span><strong><a data-rel="dialog" href="scriptures/matthew-7-13-14.html" id = "link.matthew_7:13-14"><span id = "phrases.p46">Matthew 7:13-14</span></a></strong>
+                        	<ol>
+                            	<li><strong><a data-rel="dialog" href="scriptures/acts-4-12.html" id = "link.acts_4:12"><span id = "phrases.p47">Acts 4:12</span></a></strong><span id = "phrases.p48">:  Only an individual who believes in Jesus is saved.  (This truth condemns atheists, polytheists, Jews, Muslims, Hindus, Buddhists, etc...)</span></li>
+                                <li><strong><a data-rel="dialog" href="scriptures/acts-2-36-38.html" id = "link.acts_2:36-38"><span id = "phrases.p49">Acts 2:36-38</span></a></strong><span id = "phrases.p50">:  Only an adult who is water baptized for the forgiveness of sins is saved.  (This truth condemns those who practice infant baptism and "praying Jesus into your heart" as doctrines of salvation.)</span></li>
+                                <li><strong><a data-rel="dialog" href="scriptures/matthew-28-19-20.html" id = "link.matthew_28:19-20"><span id = "phrases.p51">Matthew 28:19-20</span></a></strong><span id = "phrases.p52">:  Only the person who makes the decision to be baptized as a disciple is saved.  (This truth condemns those who may baptize for remission of sins, but are not made into disciples before and after baptism.)</span></li>
+                                <li><span id = "phrases.p53">We do not condemn the lost; they are condemned already.  However, when the lost are confronted doctrinally about their condition before God, they will repent, run or persecute.</span></li>
+                            </ol>
+                        </li>
+                        <li><span id = "phrases.p54">Doctrine of discipling
+                            </span><ol>
+                                <li><strong><a data-rel="dialog" href="scriptures/matthew-28-19-20.html" id = "link2.matthew_28:19-20" id = "link.matthew_28:19-20"><span id = "phrases.p55">Matthew 28:19-20</span></a></strong><span id = "phrases.p56">:  Discipling, calling people to obey the Word of God, is often viewed by the world as controlling.</span></li>
+                            </ol>
+                        </li>
+                    </ol>
+                </li>
+            </ol>
+        </li>
+        <li><strong><span id = "phrases.p57">Our attitude about persecution</span></strong>
+            <ol>
+                <li><strong><a data-rel="dialog" href="scriptures/matthew-5-10-12.html" id = "link.matthew_5:10-12"><span id = "phrases.p58">Matthew 5:10-12</span></a></strong>
+                    <ol>
+                        <li><span id = "phrases.p59">Do not fear persecution.  Do not care what men think about you, only God.</span></li>
+                        <li><span id = "phrases.p60">Rejoice!  You are not alone, since they persecuted both Jesus and the prophets.</span></li>
+                    </ol>
+                </li>
+                <li><strong><a data-rel="dialog" href="scriptures/ephesians-6-10-18.html" id = "link.ephesians_6:10-18"><span id = "phrases.p61">Ephesians 6:10-18</span></a></strong>
+                    <ol>
+                        <li><span id = "phrases.p62">Satan is behind all persecution.  Only God and His spiritual armor will give you the victory over the world.</span></li>
+                    </ol>
+                </li>
+            </ol>
+        </li>
+        <li><strong><span id = "phrases.p63">Conclusion</span></strong><span id = "phrases.p64"> &mdash; The International Christian Churches are a controversial Christian movement.  Some call us a cult and accuse us of both brain-washing and mind-control.  Many false rumors and half-truths have been spread.  Newspaper articles, television shows and especially the internet have slandered the ICC, and yet, the facts are that lives have been radically changed, marriages have been healed, drug addicts have been freed, the poor have been fed and cared for, and this rapidly growing movement &mdash; The SoldOut Movement &mdash; is spreading around the world in this generation!  Just like the first century!</span></li>
+        </li>
+    </ol>
+    <br>
+	<p><span id = "phrases.p65">* The Persecution study has been proven to be most helpful after the </span><a href="discipleship.html"><span id = "phrases.p66">Discipleship</span></a><span id = "phrases.p67"> study.</span></p>
+    <p><em><span id = "phrases.p68">(See </span><a href="http://www.caicc.net/" rel="external"><span id = "phrases.p69">caicc.net</span></a><span id = "phrases.p70">, </span><a href="http://www.usd21.org/" rel="external"><span id = "phrases.p71">usd21.org</span></a><span id = "phrases.p72"> and </span><a href="http://www.kipmckean.org/" rel="external"><span id = "phrases.p73">KipMcKean.org</span></a><span id = "phrases.p74">)</span></em></p>
+	</div>
+	<div data-role="footer" data-theme="b">
+
+		<div class="fpPageFooter">
+
+        <a href="./index.html" rel = "external" data-role="button" data-icon="home" data-iconpos="left" data-direction="reverse"><span id = "phrases.p75">Home</span></a> <a href="contact_us.html" rel = "external" data-role="button"><span id = "phrases.p76">Contact Us</span></a>
+
+		<div class='social'>
+		<a href='http://www.facebook.com/sharer.php?u=http://usd21.org/m/' class='social_icon facebook' rel="nofollow"></a>
+		<a href='https://twitter.com/share?url=http://usd21.org/m/' class='social_icon twitter' rel="nofollow"></a>
+		<a class='social_icon googleplus' href="https://plusone.google.com/_/+1/confirm?hl=en&url=http://usd21.org/m/" rel="nofollow" ></a>
+		<div style='clear:both'></div>
+		</div>
+		
+        <div class="fpPageFooterImages">
+		<a href="http://www.usd21.org/" rel="external"><img src="images/usd21_2012_logo.png" width="215" height="52" border="0" alt="UpsideDown21"></a>
+		<br><img src="images/dm_2012_logo.png" width="215" height="26" border="0" alt="Discipleship Media">
+        </div><span id = "phrases.p77">
+
+        &copy; 2013 International Christian Churches (SoldOut Discipling Movement)
+
+        </span></div>
+
+	</div>
+</div>
+
+<script type="text/javascript">
+
+$('[data-role=page]').live('pageshow', function (event, ui) {
+
+	// Turn off any embedded audio that might still be playing from the audio tag of another page
+	try {
+		var audioElement = document.getElementsByTagName('audio'); 
+		audioElement.pause();
+	} catch(err) {
+		
+	}
+
+});
+
+
+
+function translate() 
+{
+    var lang = "";
+    var params = window.location.toString();
+    var index = params.indexOf('lang=');
+    if(index == -1)
+    {
+        console.log("Couldn't find required language. Do not change anything - show original version");
+        return;
+    }
+    $(document.body).hide();
+    lang = params.substring(index+5);
+	var NJsonProcessed = 0;
+
+    
+	$.getJSON(
+	"lang/" + lang + "/text/persecution.json", 
+	function(json)
+    {
+        console.log("God give me strength!");
+        document.title = json.lesson_title_translated;
+        document.getElementById('lesson_headline').innerHTML = json.lesson_headline_translated;
+		for(var phrase in json.phrases)
+		{
+			i = phrase.indexOf('_');
+			if(phrase[i + 1] == 'e') // begining of english			
+			{
+				continue;			
+			}
+			phraseNum = phrase.substr(0, i);	
+            document.getElementById("phrases." + phraseNum).innerHTML = json.phrases[phrase];
+		}
+		NJsonProcessed += 1;
+		if(NJsonProcessed == 2)
+		{
+	        console.log("show from text");	
+			$(document.body).show();
+		}        
+    });
+
+	$.getJSON(
+    "lang/" + lang + "/links/scriptures.json",
+    function(json)
+    {
+        for(var passage in json.scripture)
+        {
+            var link = document.getElementById("link." + passage);
+			if(link != null)
+			{
+	            link.href = json.scripture[passage];
+			}
+        }
+		NJsonProcessed += 1;
+		if(NJsonProcessed == 2)
+		{
+	        console.log("show from scriptures");	
+			$(document.body).show();
+		}
+    });
+
+}
+translate();
+
+</script>
+
+</body>
+</html>
