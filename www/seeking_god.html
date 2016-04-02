@@ -44,7 +44,7 @@
         <li><span id = "phrases.p5">Seeking God means to "keep His statutes"</span></li>
         </ol>
         </li>
-        <li><strong><a data-rel="dialog" href="scriptures/matthew-6-25-34.html"><span id = "phrases.p6">Matthew 6:25-34</span></a></strong>
+        <li><strong><a data-rel="dialog" href="scriptures/matthew-6-25-34.html" id = "link.matthew_6:25-34"><span id = "phrases.p6">Matthew 6:25-34</span></a></strong>
         <ol>
         <li><span id = "phrases.p7">Do not worry &mdash; ironic &mdash; can not add a single hour to your life</span></li>
         <li><span id = "phrases.p8">God knows your needs</span></li>
@@ -52,7 +52,7 @@
         <li><span id = "phrases.p10">Then God will give you everything you need</span></li>
         </ol>
         </li>
-        <li><strong><a data-rel="dialog" href="scriptures/acts-17-26-28.html"><span id = "phrases.p11">Acts 17:26-28</span></a></strong>
+        <li><strong><a data-rel="dialog" href="scriptures/acts-17-26-28.html" id = "link.acts_17:26-28"><span id = "phrases.p11">Acts 17:26-28</span></a></strong>
         <ol>
         <li><span id = "phrases.p12">God determines the times and places each person lives</span></li>
         <li><span id = "phrases.p13">He does this so men will seek Him, reach out for Him and find Him</span></li>
@@ -60,26 +60,26 @@
         <li><span id = "phrases.p15">A Christian meeting you is not by chance &mdash; but of God.</span></li>
         </ol>
         </li>
-        <li><strong><a data-rel="dialog" href="scriptures/john-4-23-24.html"><span id = "phrases.p16">John 4:23-24</span></a></strong>
+        <li><strong><a data-rel="dialog" href="scriptures/john-4-23-24.html" id = "link.john_4:23-24"><span id = "phrases.p16">John 4:23-24</span></a></strong>
         <ol>
         <li><span id = "phrases.p17">God seeks men (Acts 17 taught men must seek God)</span></li>
         <li><span id = "phrases.p18">Men who want to worship Him in spirit and in truth</span></li>
         </ol>
         </li>
-        <li><strong><a data-rel="dialog" href="scriptures/acts-17-10-12.html"><span id = "phrases.p19">Acts 17:10-12</span></a></strong>
+        <li><strong><a data-rel="dialog" href="scriptures/acts-17-10-12.html" id = "link.acts_17:10-12"><span id = "phrases.p19">Acts 17:10-12</span></a></strong>
         <ol>
         <li><span id = "phrases.p20">Read and study the Bible for your own convictions</span></li>
         <li><span id = "phrases.p21">Study daily</span></li>
         </ol>
         </li>
-        <li><strong><a data-rel="dialog" href="scriptures/jeremiah-29-11-14.html"><span id = "phrases.p22">Jeremiah 29:11-14</span></a></strong>
+        <li><strong><a data-rel="dialog" href="scriptures/jeremiah-29-11-14.html" id = "link.jeremiah_29:11-14"><span id = "phrases.p22">Jeremiah 29:11-14</span></a></strong>
         <ol>
         <li><span id = "phrases.p23">God has an individual plan for your life</span></li>
         <li><span id = "phrases.p24">A plan to prosper you &mdash; with hope and a future</span></li>
         <li><span id = "phrases.p25">You will find God when you seek Him with all your heart</span></li>
         </ol>
         </li>
-        <li><strong><a data-rel="dialog" href="scriptures/acts-8-26-39.html"><span id = "phrases.p26">Acts 8:26-39</span></a></strong>
+        <li><strong><a data-rel="dialog" href="scriptures/acts-8-26-39.html" id = "link.acts_8:26-39"><span id = "phrases.p26">Acts 8:26-39</span></a></strong>
         <ol>
         <li><span id = "phrases.p27">The angels and the Holy Spirit are helping to get you to God</span></li>
         <li><span id = "phrases.p28">Do not be afraid to ask questions about life or the Bible &mdash; be humble</span></li>
@@ -87,7 +87,7 @@
         <li><span id = "phrases.p30">You will be "rejoicing" when you find God</span></li>
         </ol>
         </li>
-        <li><strong><a data-rel="dialog" href="scriptures/matthew-7-7-8.html"><span id = "phrases.p31">Matthew 7:7-8</span></a></strong>
+        <li><strong><a data-rel="dialog" href="scriptures/matthew-7-7-8.html" id = "link.matthew_7:7-8"><span id = "phrases.p31">Matthew 7:7-8</span></a></strong>
         <ol>
         <li><span id = "phrases.p32">Seek and God guarantees you will find Him</span></li>
         <li><span id = "phrases.p33">Ask God for help</span></li>
@@ -137,6 +137,8 @@ $('[data-role=page]').live('pageshow', function (event, ui) {
 
 });
 
+
+
 function translate() 
 {
     var lang = "";
@@ -149,39 +151,55 @@ function translate()
     }
     $(document.body).hide();
     lang = params.substring(index+5);
+	var NJsonProcessed = 0;
 
-    $.getJSON(
+    
+	$.getJSON(
+	"lang/" + lang + "/text/seeking_god.json", 
+	function(json)
+    {
+        console.log("God give me strength!");
+        document.title = json.lesson_title_translated;
+        document.getElementById('lesson_headline').innerHTML = json.lesson_headline_translated;
+		for(var phrase in json.phrases)
+		{
+			i = phrase.indexOf('_');
+			if(phrase[i + 1] == 'e') // begining of english			
+			{
+				continue;			
+			}
+			phraseNum = phrase.substr(0, i);	
+            document.getElementById("phrases." + phraseNum).innerHTML = json.phrases[phrase];
+		}
+		NJsonProcessed += 1;
+		if(NJsonProcessed == 2)
+		{
+	        console.log("show from text");	
+			$(document.body).show();
+		}        
+    });
+
+	$.getJSON(
     "lang/" + lang + "/links/scriptures.json",
     function(json)
     {
         for(var passage in json.scripture)
         {
-            console.log("passage = " + passage + " val = " + json.scripture[passage]);
             var link = document.getElementById("link." + passage);
-            console.log(link);
-            link.href = json.scripture[passage];
+			if(link != null)
+			{
+	            link.href = json.scripture[passage];
+			}
         }
+		NJsonProcessed += 1;
+		if(NJsonProcessed == 2)
+		{
+	        console.log("show from scriptures");	
+			$(document.body).show();
+		}
     });
 
-
-$(document).ready(function()
-{
-    $.getJSON("lang/" + lang + "/text/seeking_god.json", function(json)
-    {
-        console.log("God give me strength!");
-        document.title = json.lesson_title_translated;
-        document.getElementById('lesson_headline').innerHTML = json.lesson_headline_translated;
-        for(i = 1; i <= 36; i++)
-        {
-            eval("document.getElementById('phrases.p" + i + "').innerHTML = json.phrases.p" + i + "_translated;");
-//            console.log(eval("json.phrases.p" + i + "_translated;"));
-
-        }
-        $(document.body).show();
-    });
-    });
 }
-
 translate();
 
 

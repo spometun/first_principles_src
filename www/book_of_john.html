@@ -76,23 +76,70 @@ $('[data-role=page]').live('pageshow', function (event, ui) {
 });
 
 
-$(document.body).hide();
-var params = window.location.toString();
-var lang = params.substring(params.indexOf('lang=')+5);
 
-$(document).ready(function() {
-$.getJSON("lang/" + lang + "/text/book_of_john.json", function(json)
+function translate() 
 {
-    console.log("God give me strength!");
-    document.title = json.lesson_title_translated;
-    document.getElementById('lesson_headline').innerHTML = json.lesson_headline_translated;
-    for(i = 1; i <= 3; i++)
+    var lang = "";
+    var params = window.location.toString();
+    var index = params.indexOf('lang=');
+    if(index == -1)
     {
-        eval("document.getElementById('phrases.p" + i + "').innerHTML = json.phrases.p" + i + "_translated;");
+        console.log("Couldn't find required language. Do not change anything - show original version");
+        return;
     }
-	$(document.body).show();
-});
-});
+    $(document.body).hide();
+    lang = params.substring(index+5);
+	var NJsonProcessed = 0;
+
+    
+	$.getJSON(
+	"lang/" + lang + "/text/book_of_john.json", 
+	function(json)
+    {
+        console.log("God give me strength!");
+        document.title = json.lesson_title_translated;
+        document.getElementById('lesson_headline').innerHTML = json.lesson_headline_translated;
+		for(var phrase in json.phrases)
+		{
+			i = phrase.indexOf('_');
+			if(phrase[i + 1] == 'e') // begining of english			
+			{
+				continue;			
+			}
+			phraseNum = phrase.substr(0, i);	
+            document.getElementById("phrases." + phraseNum).innerHTML = json.phrases[phrase];
+		}
+		NJsonProcessed += 1;
+		if(NJsonProcessed == 2)
+		{
+	        console.log("show from text");	
+			$(document.body).show();
+		}        
+    });
+
+	$.getJSON(
+    "lang/" + lang + "/links/scriptures.json",
+    function(json)
+    {
+        for(var passage in json.scripture)
+        {
+            var link = document.getElementById("link." + passage);
+			if(link != null)
+			{
+	            link.href = json.scripture[passage];
+			}
+        }
+		NJsonProcessed += 1;
+		if(NJsonProcessed == 2)
+		{
+	        console.log("show from scriptures");	
+			$(document.body).show();
+		}
+    });
+
+}
+translate();
+
 
 </script>
 

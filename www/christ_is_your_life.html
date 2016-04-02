@@ -32,21 +32,21 @@
     </ol>
     <br>
     <ol>
-    	<li><strong><a href="scriptures/colossians-3-1-4.html" data-rel="dialog"><span id = "phrases.p6">Colossians 3:1-4</span></a></strong><span id = "phrases.p7">:  Raised to a new life
+    	<li><strong><a href="scriptures/colossians-3-1-4.html" id = "link.colossians_3:1-4" data-rel="dialog"><span id = "phrases.p6">Colossians 3:1-4</span></a></strong><span id = "phrases.p7">:  Raised to a new life
         	</span><ol>
-            	<li><span id = "phrases.p8">Raised with Christ in baptism (</span><strong><a href="scriptures/colossians-2-12.html" data-rel="dialog"><span id = "phrases.p9">Colossians 2:12</span></a></strong><span id = "phrases.p10">).</span></li>
+            	<li><span id = "phrases.p8">Raised with Christ in baptism (</span><strong><a href="scriptures/colossians-2-12.html" id = "link.colossians_2:12" data-rel="dialog"><span id = "phrases.p9">Colossians 2:12</span></a></strong><span id = "phrases.p10">).</span></li>
                 <li><span id = "phrases.p11">The Holy Spirit, received at baptism, gives you the power to set your mind (thoughts) and set your heart (emotions) on things above.</span></li>
                 <li><span id = "phrases.p12">Christ is your life.</span></li>
             </ol>
         </li>
-        <li><strong><a href="scriptures/colossians-3-5-11.html" data-rel="dialog"><span id = "phrases.p13">Colossians 3:5-11</span></a></strong><span id = "phrases.p14">:  Put to death
+        <li><strong><a href="scriptures/colossians-3-5-11.html" id = "link.colossians_3:5-11" data-rel="dialog"><span id = "phrases.p13">Colossians 3:5-11</span></a></strong><span id = "phrases.p14">:  Put to death
         	</span><ol>
             	<li><span id = "phrases.p15">Discuss and be open about your struggles this week.</span></li>
                 <li><span id = "phrases.p16">Discuss any financial challenges &mdash; pledge to God, rent, bills, salary, etc...</span></li>
                 <li><span id = "phrases.p17">Discuss practical ways to crucify your sinful nature.</span></li>
             </ol>
         </li>
-        <li><strong><a href="scriptures/colossians-3-12-14.html" data-rel="dialog"><span id = "phrases.p18">Colossians 3:12-14</span></a></strong><span id = "phrases.p19">: Put on &mdash; clothe yourself
+        <li><strong><a href="scriptures/colossians-3-12-14.html" id = "link.colossians_3:12-14" data-rel="dialog"><span id = "phrases.p18">Colossians 3:12-14</span></a></strong><span id = "phrases.p19">: Put on &mdash; clothe yourself
         	</span><ol>
             	<li><span id = "phrases.p20">Compassion</span></li>
                 <li><span id = "phrases.p21">Kindness</span></li>
@@ -56,14 +56,14 @@
                 <li><span id = "phrases.p25">Forgiveness</span></li>
             </ol>
         </li>
-        <li><strong><a href="scriptures/colossians-3-15-24.html" data-rel="dialog"><span id = "phrases.p26">Colossians 3:15-24</span></a></strong><span id = "phrases.p27">: New attitudes
+        <li><strong><a href="scriptures/colossians-3-15-24.html" id = "link.colossians_3:15-24" data-rel="dialog"><span id = "phrases.p26">Colossians 3:15-24</span></a></strong><span id = "phrases.p27">: New attitudes
         	</span><ol>
             	<li><span id = "phrases.p28">Peace</span></li>
                 <li><span id = "phrases.p29">Thankful</span></li>
                 <li><span id = "phrases.p30">Wholehearted</span></li>
-                <li><span id = "phrases.p31">Family Interactions (</span><a href="scriptures/colossians-3-18-21.html" data-rel="dialog"><span id = "phrases.p32">v. 18-21</span></a><span id = "phrases.p33">)</span></li>
-                <li><span id = "phrases.p34">Employer/employee relationships (</span><a href="scriptures/colossians-3-22-24.html" data-rel="dialog"><span id = "phrases.p35">v. 22-24</span></a><span id = "phrases.p36">)</span></li>
-                <li><span id = "phrases.p37">Teacher/student relationships (</span><a href="scriptures/colossians-3-22-24.html" data-rel="dialog"><span id = "phrases.p38">v. 22-24</span></a><span id = "phrases.p39">)</span></li>
+                <li><span id = "phrases.p31">Family Interactions (</span><a href="scriptures/colossians-3-18-21.html" id = "link.colossians_3:18-21" data-rel="dialog"><span id = "phrases.p32">v. 18-21</span></a><span id = "phrases.p33">)</span></li>
+                <li><span id = "phrases.p34">Employer/employee relationships (</span><a href="scriptures/colossians-3-22-24.html" id = "link.colossians_3:22-24" data-rel="dialog"><span id = "phrases.p35">v. 22-24</span></a><span id = "phrases.p36">)</span></li>
+                <li><span id = "phrases.p37">Teacher/student relationships (</span><a href="scriptures/colossians-3-22-24.html" id = "link2.colossians_3:22-24" data-rel="dialog"><span id = "phrases.p38">v. 22-24</span></a><span id = "phrases.p39">)</span></li>
             </ol>
         </li>
     </ol>
@@ -108,23 +108,75 @@ $('[data-role=page]').live('pageshow', function (event, ui) {
 });
 
 
-$(document.body).hide();
-var params = window.location.toString();
-var lang = params.substring(params.indexOf('lang=')+5);
 
-$(document).ready(function() {
-$.getJSON("lang/" + lang + "/text/christ_is_your_life.json", function(json)
+function translate() 
 {
-    console.log("God give me strength!");
-    document.title = json.lesson_headline_translated;
-    document.getElementById('lesson_headline').innerHTML = json.lesson_headline_translated;
-    for(i = 1; i <= 42; i++)
+    var lang = "";
+    var params = window.location.toString();
+    var index = params.indexOf('lang=');
+    if(index == -1)
     {
-        eval("document.getElementById('phrases.p" + i + "').innerHTML = json.phrases.p" + i + "_translated;");
+        console.log("Couldn't find required language. Do not change anything - show original version");
+        return;
     }
-	$(document.body).show();
-});
-});
+    $(document.body).hide();
+    lang = params.substring(index+5);
+	var NJsonProcessed = 0;
+
+    
+	$.getJSON(
+	"lang/" + lang + "/text/christ_is_your_life.json", 
+	function(json)
+    {
+        console.log("God give me strength!");
+        document.title = json.lesson_title_translated;
+        document.getElementById('lesson_headline').innerHTML = json.lesson_headline_translated;
+		for(var phrase in json.phrases)
+		{
+			i = phrase.indexOf('_');
+			if(phrase[i + 1] == 'e') // begining of english			
+			{
+				continue;			
+			}
+			phraseNum = phrase.substr(0, i);	
+            document.getElementById("phrases." + phraseNum).innerHTML = json.phrases[phrase];
+		}
+		NJsonProcessed += 1;
+		if(NJsonProcessed == 2)
+		{
+	        console.log("show from text");	
+			$(document.body).show();
+		}        
+    });
+
+	$.getJSON(
+    "lang/" + lang + "/links/scriptures.json",
+    function(json)
+    {
+        for(var passage in json.scripture)
+        {
+            var link = document.getElementById("link." + passage);
+			if(link != null)
+			{
+	            link.href = json.scripture[passage];
+			}
+			link = document.getElementById("link2." + passage);
+			if(link != null)
+			{
+	            link.href = json.scripture[passage];
+			}
+        }
+		NJsonProcessed += 1;
+		if(NJsonProcessed == 2)
+		{
+	        console.log("show from scriptures");	
+			$(document.body).show();
+		}
+    });
+
+}
+translate();
+
 
 </script>
 

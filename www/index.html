@@ -106,23 +106,60 @@ $( '[data-role=page]' ).live( 'pageshow', function (event, ui) {
 
 });
 
-$(document.body).hide();
-$(document).ready(function() {
-$.getJSON("lang/" + lang + "/text/index.json", function(json)
+
+function translate() 
 {
-    console.log("God give me strength!");
-    document.title = json.lesson_title_translated;
-//  document.getElementById('audio_link_mp3').src = json.audio_link_mp3;	
-//	document.getElementById('audio_link_m4a').src = json.audio_link_m4a;	
-//	document.getElementById('audio_link_ogg').src = json.audio_link_ogg;	
-    document.getElementById('lesson_headline').innerHTML = json.lesson_headline_translated;
-    for(i = 1; i <= 22; i++)
+   $(document.body).hide();
+	var NJsonProcessed = 0;
+    
+	$.getJSON(
+	"lang/" + lang + "/text/index.json", 
+	function(json)
     {
-        eval("document.getElementById('phrases.p" + i + "').innerHTML = json.phrases.p" + i + "_translated;");
-    }
-    $(document.body).show();
-});
-});
+        console.log("God give me strength!");
+        document.title = json.lesson_title_translated;
+        document.getElementById('lesson_headline').innerHTML = json.lesson_headline_translated;
+		for(var phrase in json.phrases)
+		{
+			i = phrase.indexOf('_');
+			if(phrase[i + 1] == 'e') // begining of english			
+			{
+				continue;			
+			}
+			phraseNum = phrase.substr(0, i);	
+            document.getElementById("phrases." + phraseNum).innerHTML = json.phrases[phrase];
+		}
+		NJsonProcessed += 1;
+		if(NJsonProcessed == 2)
+		{
+	        console.log("show from text");	
+			$(document.body).show();
+		}        
+    });
+
+	$.getJSON(
+    "lang/" + lang + "/links/scriptures.json",
+    function(json)
+    {
+        for(var passage in json.scripture)
+        {
+            var link = document.getElementById("link." + passage);
+			if(link != null)
+			{
+	            link.href = json.scripture[passage];
+			}
+        }
+		NJsonProcessed += 1;
+		if(NJsonProcessed == 2)
+		{
+	        console.log("show from scriptures");	
+			$(document.body).show();
+		}
+    });
+
+}
+translate();
+
 </script>
 
 <script type="text/javascript" src="cordova.js"></script>
