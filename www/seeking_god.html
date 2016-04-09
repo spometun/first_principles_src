@@ -22,16 +22,10 @@
 <div data-role="content" data-theme="d">
 
 		<div class="usd21audio">
-        <div class="usd21audiodownload">
-        Download audio: &nbsp;
-        <a href="http://www.usd21.org/m/lang/en/fp/audio/mp3/02-Seeking_God.mp3" rel="external">MP3</a> |
-        <a href="http://www.usd21.org/m/lang/en/fp/audio/m4a/02-Seeking_God.m4a" rel="external">M4A</a> |
-        <a href="http://www.usd21.org/m/lang/en/fp/audio/ogg/02-Seeking_God.ogg" rel="external">OGG</a>
-        </div>
-        <audio controls="controls">
-        <source src="http://www.moscowicc.org/fp/audio/ru/seeking_god.mp3" type="audio/ogg" />
-        <source src="http://www.moscowicc.org/fp/audio/ru/seeking_god.mp3" type="audio/aac" />
-        <source src="http://www.moscowicc.org/fp/audio/ru/seeking_god.mp3" type="audio/mpeg" />
+		<audio controls="controls" id = "audio">
+        	<source src="http://www.usd21.org/m/lang/en/fp/audio/ogg/02-Seeking_God.ogg" type="audio/ogg" id = "seeking_god_ogg" id = "seeking_god_ogg"> </source>
+	        <source src="http://www.usd21.org/m/lang/en/fp/audio/ogg/02-Seeking_God.m4a" type="audio/aac" id = "seeking_god_m4a"  id = "seeking_god_m4a"> </source>
+    	    <source src="http://www.usd21.org/m/lang/en/fp/audio/ogg/02-Seeking_God.mp3" type="audio/mpeg" id = "seeking_god_mp3"  id = "seeking_god_mp3"> </source>
         </audio>
         </div>
 
@@ -141,21 +135,22 @@ $('[data-role=page]').live('pageshow', function (event, ui) {
 
 function translate() 
 {
-    var lang = "";
-    var params = window.location.toString();
-    var index = params.indexOf('lang=');
-    if(index == -1)
+    var url = window.location.toString();
+    var langIndex = url.indexOf('lang=');
+    if(langIndex == -1)
     {
         console.log("Couldn't find required language. Do not change anything - show original version");
         return;
     }
     $(document.body).hide();
-    lang = params.substring(index+5);
-	var NJsonProcessed = 0;
+    var lang = url.substring(langIndex+5);
+	var fileName = url.substring(url.lastIndexOf('/') + 1, url.lastIndexOf('.html'));
+	console.log(fileName);
+	var NJsonsProcessed = 0;
 
     
 	$.getJSON(
-	"lang/" + lang + "/text/seeking_god.json", 
+	"lang/" + lang + "/text/" + fileName + ".json", 
 	function(json)
     {
         console.log("God give me strength!");
@@ -171,13 +166,14 @@ function translate()
 			phraseNum = phrase.substr(0, i);	
             document.getElementById("phrases." + phraseNum).innerHTML = json.phrases[phrase];
 		}
-		NJsonProcessed += 1;
-		if(NJsonProcessed == 2)
+    }).always(function(json) {
+		NJsonsProcessed += 1;
+		if(NJsonsProcessed == 2)
 		{
 	        console.log("show from text");	
 			$(document.body).show();
 		}        
-    });
+	});
 
 	$.getJSON(
     "lang/" + lang + "/links/scriptures.json",
@@ -191,15 +187,38 @@ function translate()
 	            link.href = json.scripture[passage];
 			}
         }
-		NJsonProcessed += 1;
-		if(NJsonProcessed == 2)
+    }).always(function(json) {
+		NJsonsProcessed += 1;
+		if(NJsonsProcessed == 2)
 		{
 	        console.log("show from scriptures");	
 			$(document.body).show();
-		}
+		}        
+	});
+
+$.getJSON(
+    "lang/" + lang + "/links/audio.json",
+    function(json)
+    {
+		var audio = document.getElementById("audio");
+		
+		var mp3 = document.getElementById(fileName + "_mp3");
+		var mp3Src = json[fileName + "_mp3"];
+		if(mp3Src)	mp3.src = mp3Src;
+
+		var m4a = document.getElementById(fileName + "_m4a");
+		var m4aSrc = json[fileName + "_m4a"];
+		if(m4aSrc) m4a.src = m4aSrc;
+
+		var ogg = document.getElementById(fileName + "_ogg");
+		var oggSrc = json[fileName + "_ogg"];
+		if(oggSrc) ogg.src = oggSrc;
+
+		audio.load();
     });
 
 }
+
 translate();
 
 
