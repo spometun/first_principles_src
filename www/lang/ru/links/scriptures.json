@@ -9,7 +9,7 @@
     },
     "scripture":
     {
-		"link.john_3:34_rusv": "https://www.biblegateway.com/passage/?search=john3:34-john3:34&version=RUSV&interface=print",
+		"john_3:34_rusv": "https://www.biblegateway.com/passage/?search=john3:34-3:34&version=RUSV&interface=print",
 		"psalm_119:1-2": "https://www.biblegateway.com/passage/?search=psalm118:1-118:2&version=NRT&interface=print",
 
         "acts_2:36-47": "https://www.biblegateway.com/passage/?search=acts2:36-2:47&version=NRT&interface=print",
