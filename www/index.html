@@ -1,10 +1,6 @@
 <!DOCTYPE html> 
 <html>
 
-<script>
-var lang = "ru";
-</script>
-
 <head>
 	<meta charset="utf-8" />
     <meta name="format-detection" content="telephone=no" />
@@ -34,26 +30,26 @@ var lang = "ru";
 	</div>
 	<div data-role="content" data-theme="d">
 	<ul data-role="listview">
-		<li><a href="introduction.html?lang=ru" rel = "external"><span id = "phrases.p1">Introduction</span></a></li>
-		<li><a href="book_of_john.html?lang=ru" rel = "external"><span id = "phrases.p2">The Book of John</span></a></li>
-		<li><a href="seeking_god.html?lang=ru" rel = "external"><span id = "phrases.p3">Seeking God</span></a></li>
-		<li><a href="word_of_god.html?lang=ru" rel = "external"><span id = "phrases.p4">The Word of God</span></a></li>
-		<li><a href="discipleship.html?lang=ru" rel = "external"><span id = "phrases.p5">Discipleship</span></a></li>
-		<li><a href="coming_of_the_kingdom.html?lang=ru" rel = "external"><span id = "phrases.p6">The Coming of the Kingdom</span></a></li>
-		<li><a href="light_and_darkness.html?lang=ru" rel = "external"><span id = "phrases.p7">Light and Darkness</span></a></li>
-		<li><a href="new_testament_conversion.html?lang=ru" rel = "external"><span id = "phrases.p8">New Testament Conversion</span></a></li>
-		<li><a href="cross.html?lang=ru" rel = "external"><span id = "phrases.p9">The Cross</span></a></li>
-		<li><a href="medical_account.html?lang=ru" rel = "external"><span id = "phrases.p10">The Medical Account of the Crucifixion of Christ</span></a></li>
-		<li><a href="baptism_with_the_holy_spirit.html?lang=ru" rel = "external"><span id = "phrases.p11">Baptism with the Holy Spirit</span></a></li>
-		<li><a href="miraculous_gifts_of_the_holy_spirit.html?lang=ru" rel = "external"><span id = "phrases.p12">Miraculous Gifts of the Holy Spirit</span></a></li>
-		<li><a href="church.html?lang=ru" rel = "external"><span id = "phrases.p13">The Church</span></a></li>
-		<li><a href="book_of_acts.html?lang=ru" rel = "external"><span id = "phrases.p14">The Book of Acts</span></a></li>
-		<li><a href="after_baptism_now_what.html?lang=ru" rel = "external"><span id = "phrases.p15">After Baptism, Now What?</span></a></li>
-		<li><a href="christ_is_your_life.html?lang=ru" rel = "external"><span id = "phrases.p16">Christ Is Your Life</span></a></li>
-		<li><a href="best_friends_of_all_time.html?lang=ru" rel = "external"><span id = "phrases.p17">Best Friends of All Time</span></a></li>
-		<li><a href="mission.html?lang=ru" rel = "external"><span id = "phrases.p18">The Mission</span></a></li>
-		<li><a href="persecution.html?lang=ru" rel = "external"><span id = "phrases.p19">Persecution</span></a></li>
-		<li><a href="memory_scriptures.html?lang=ru" rel = "external"><span id = "phrases.p20">Memory Scriptures</span></a></li>
+		<li><a href="introduction.html" rel = "external"><span id = "phrases.p1">Introduction</span></a></li>
+		<li><a href="book_of_john.html" rel = "external"><span id = "phrases.p2">The Book of John</span></a></li>
+		<li><a href="seeking_god.html" rel = "external"><span id = "phrases.p3">Seeking God</span></a></li>
+		<li><a href="word_of_god.html" rel = "external"><span id = "phrases.p4">The Word of God</span></a></li>
+		<li><a href="discipleship.html" rel = "external"><span id = "phrases.p5">Discipleship</span></a></li>
+		<li><a href="coming_of_the_kingdom.html" rel = "external"><span id = "phrases.p6">The Coming of the Kingdom</span></a></li>
+		<li><a href="light_and_darkness.html" rel = "external"><span id = "phrases.p7">Light and Darkness</span></a></li>
+		<li><a href="new_testament_conversion.html" rel = "external"><span id = "phrases.p8">New Testament Conversion</span></a></li>
+		<li><a href="cross.html" rel = "external"><span id = "phrases.p9">The Cross</span></a></li>
+		<li><a href="medical_account.html" rel = "external"><span id = "phrases.p10">The Medical Account of the Crucifixion of Christ</span></a></li>
+		<li><a href="baptism_with_the_holy_spirit.html" rel = "external"><span id = "phrases.p11">Baptism with the Holy Spirit</span></a></li>
+		<li><a href="miraculous_gifts_of_the_holy_spirit.html" rel = "external"><span id = "phrases.p12">Miraculous Gifts of the Holy Spirit</span></a></li>
+		<li><a href="church.html" rel = "external"><span id = "phrases.p13">The Church</span></a></li>
+		<li><a href="book_of_acts.html" rel = "external"><span id = "phrases.p14">The Book of Acts</span></a></li>
+		<li><a href="after_baptism_now_what.html" rel = "external"><span id = "phrases.p15">After Baptism, Now What?</span></a></li>
+		<li><a href="christ_is_your_life.html" rel = "external"><span id = "phrases.p16">Christ Is Your Life</span></a></li>
+		<li><a href="best_friends_of_all_time.html" rel = "external"><span id = "phrases.p17">Best Friends of All Time</span></a></li>
+		<li><a href="mission.html" rel = "external"><span id = "phrases.p18">The Mission</span></a></li>
+		<li><a href="persecution.html" rel = "external"><span id = "phrases.p19">Persecution</span></a></li>
+		<li><a href="memory_scriptures.html" rel = "external"><span id = "phrases.p20">Memory Scriptures</span></a></li>
 	</ul>
 	</div>
 	<div data-role="footer" data-theme="b">
@@ -117,86 +113,121 @@ $( '[data-role=page]' ).live( 'pageshow', function (event, ui) {
     app.initialize();
 </script>
 
- <script type="text/javascript">
+ 
 
-                          function translate()
+                        <script type="text/javascript">
+
+                        var lang;
+
+                        function translate()
+                        {
+                            $(document.body).hide();
+                            var url = window.location.toString();
+                            var fileName = url.substring(url.lastIndexOf('/') + 1, url.lastIndexOf('.html'));
+                            console.log(fileName);
+                            var NJsonsProcessed = 0;
+
+                            $.getJSON(
+                            "lang/" + lang + "/text/" + fileName + ".json",
+                            function(json)
+                            {
+                                console.log("God give me strength!");
+                                document.title = json.lesson_title_translated;
+                                document.getElementById('lesson_headline').innerHTML = json.lesson_headline_translated;
+                                for(var phrase in json.phrases)
+                                {
+                                    i = phrase.indexOf('_');
+                                    if(phrase[i + 1] == 'e') // begining of english
+                                    {
+                                        continue;
+                                    }
+                                    phraseNum = phrase.substr(0, i);
+                                    document.getElementById("phrases." + phraseNum).innerHTML = json.phrases[phrase];
+                                }
+                            }).always(function(json) {
+                                NJsonsProcessed += 1;
+                                if(NJsonsProcessed == 2)
+                                {
+                                    console.log("show from text");
+                                    $(document.body).show();
+                                }
+                            });
+
+                            $.getJSON(
+                            "lang/" + lang + "/links/scriptures.json",
+                            function(json)
+                            {
+                                for(var passage in json.scripture)
+                                {
+                                  var link = document.getElementById("link." + passage);
+                                  if(link != null)
+                                  {
+                                      link.href = json.scripture[passage];
+                                  }
+                                  link = document.getElementById("link2." + passage);
+                                  if(link != null)
+                                  {
+                                      link.href = json.scripture[passage];
+                                  }
+                                  link = document.getElementById("link3." + passage);
+                                  if(link != null)
+                                  {
+                                      link.href = json.scripture[passage];
+                                  }
+                                  link = document.getElementById("link4." + passage);
+                                  if(link != null)
+                                  {
+                                      link.href = json.scripture[passage];
+                                  }
+                             }
+                            }).always(function(json) {
+                                NJsonsProcessed += 1;
+                                if(NJsonsProcessed == 2)
+                                {
+                                    console.log("show from scriptures");
+                                    $(document.body).show();
+                                }
+                            });
+
+                        $.getJSON(
+                            "lang/" + lang + "/links/audio.json",
+                            function(json)
+                            {
+                                var audio = document.getElementById("audio");
+
+                                var mp3 = document.getElementById(fileName + "_mp3");
+                                var mp3Src = json[fileName + "_mp3"];
+                                if(mp3Src)	mp3.src = mp3Src;
+
+                                var m4a = document.getElementById(fileName + "_m4a");
+                                var m4aSrc = json[fileName + "_m4a"];
+                                if(m4aSrc) m4a.src = m4aSrc;
+
+                                var ogg = document.getElementById(fileName + "_ogg");
+                                var oggSrc = json[fileName + "_ogg"];
+                                if(oggSrc) ogg.src = oggSrc;
+
+                                audio.load();
+                            });
+
+                        }
+
+
+                          $.getJSON("language.json",function(json)
                           {
-							  $(document.body).hide();                             
-							  var url = window.location.toString();
-                             
-                              var fileName = url.substring(url.lastIndexOf('/') + 1, url.lastIndexOf('.html'));
-                              console.log(fileName);
-                              var NJsonsProcessed = 0;
-
-
-                              $.getJSON(
-                              "lang/" + lang + "/text/" + fileName + ".json",
-                              function(json)
+                              lang = json["language"];
+                              if(lang)
                               {
-                                  console.log("God give me strength!");
-                                  document.title = json.lesson_title_translated;
-                                  document.getElementById('lesson_headline').innerHTML = json.lesson_headline_translated;
-                                  for(var phrase in json.phrases)
-                                  {
-                                      i = phrase.indexOf('_');
-                                      if(phrase[i + 1] == 'e') // begining of english
-                                      {
-                                          continue;
-                                      }
-                                      phraseNum = phrase.substr(0, i);
-                                      document.getElementById("phrases." + phraseNum).innerHTML = json.phrases[phrase];
-                                  }
-                              }).always(function(json) {
-                                  NJsonsProcessed += 1;
-                                  if(NJsonsProcessed == 2)
-                                  {
-                                      console.log("show from text");
-                                      $(document.body).show();
-                                  }
-                              });
-
-                              $.getJSON(
-                              "lang/" + lang + "/links/scriptures.json",
-                              function(json)
+                                translate();
+                              }else
                               {
-                                  for(var passage in json.scripture)
-                                  {
-                                    var link = document.getElementById("link." + passage);
-                                    if(link != null)
-                                    {
-                                        link.href = json.scripture[passage];
-                                    }
-                                    link = document.getElementById("link2." + passage);
-                                    if(link != null)
-                                    {
-                                        link.href = json.scripture[passage];
-                                    }
-                                    link = document.getElementById("link3." + passage);
-                                    if(link != null)
-                                    {
-                                        link.href = json.scripture[passage];
-                                    }
-                                    link = document.getElementById("link4." + passage);
-                                    if(link != null)
-                                    {
-                                        link.href = json.scripture[passage];
-                                    }
-                               }
-                              }).always(function(json) {
-                                  NJsonsProcessed += 1;
-                                  if(NJsonsProcessed == 2)
-                                  {
-                                      console.log("show from scriptures");
-                                      $(document.body).show();
-                                  }
-                              });
+                                  console.log("Couldn't detemined language. Do not change anything - show original version");
+                              }
+                          });
 
-                         }
+                        </script>
 
-                          translate();
-
-
-                          </script>
+                          
 
 
 

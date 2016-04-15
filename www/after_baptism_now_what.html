@@ -112,113 +112,121 @@
 
                           
 
-                          <script type="text/javascript">
+                          
 
-                          function translate()
+                        <script type="text/javascript">
+
+                        var lang;
+
+                        function translate()
+                        {
+                            $(document.body).hide();
+                            var url = window.location.toString();
+                            var fileName = url.substring(url.lastIndexOf('/') + 1, url.lastIndexOf('.html'));
+                            console.log(fileName);
+                            var NJsonsProcessed = 0;
+
+                            $.getJSON(
+                            "lang/" + lang + "/text/" + fileName + ".json",
+                            function(json)
+                            {
+                                console.log("God give me strength!");
+                                document.title = json.lesson_title_translated;
+                                document.getElementById('lesson_headline').innerHTML = json.lesson_headline_translated;
+                                for(var phrase in json.phrases)
+                                {
+                                    i = phrase.indexOf('_');
+                                    if(phrase[i + 1] == 'e') // begining of english
+                                    {
+                                        continue;
+                                    }
+                                    phraseNum = phrase.substr(0, i);
+                                    document.getElementById("phrases." + phraseNum).innerHTML = json.phrases[phrase];
+                                }
+                            }).always(function(json) {
+                                NJsonsProcessed += 1;
+                                if(NJsonsProcessed == 2)
+                                {
+                                    console.log("show from text");
+                                    $(document.body).show();
+                                }
+                            });
+
+                            $.getJSON(
+                            "lang/" + lang + "/links/scriptures.json",
+                            function(json)
+                            {
+                                for(var passage in json.scripture)
+                                {
+                                  var link = document.getElementById("link." + passage);
+                                  if(link != null)
+                                  {
+                                      link.href = json.scripture[passage];
+                                  }
+                                  link = document.getElementById("link2." + passage);
+                                  if(link != null)
+                                  {
+                                      link.href = json.scripture[passage];
+                                  }
+                                  link = document.getElementById("link3." + passage);
+                                  if(link != null)
+                                  {
+                                      link.href = json.scripture[passage];
+                                  }
+                                  link = document.getElementById("link4." + passage);
+                                  if(link != null)
+                                  {
+                                      link.href = json.scripture[passage];
+                                  }
+                             }
+                            }).always(function(json) {
+                                NJsonsProcessed += 1;
+                                if(NJsonsProcessed == 2)
+                                {
+                                    console.log("show from scriptures");
+                                    $(document.body).show();
+                                }
+                            });
+
+                        $.getJSON(
+                            "lang/" + lang + "/links/audio.json",
+                            function(json)
+                            {
+                                var audio = document.getElementById("audio");
+
+                                var mp3 = document.getElementById(fileName + "_mp3");
+                                var mp3Src = json[fileName + "_mp3"];
+                                if(mp3Src)	mp3.src = mp3Src;
+
+                                var m4a = document.getElementById(fileName + "_m4a");
+                                var m4aSrc = json[fileName + "_m4a"];
+                                if(m4aSrc) m4a.src = m4aSrc;
+
+                                var ogg = document.getElementById(fileName + "_ogg");
+                                var oggSrc = json[fileName + "_ogg"];
+                                if(oggSrc) ogg.src = oggSrc;
+
+                                audio.load();
+                            });
+
+                        }
+
+
+                          $.getJSON("language.json",function(json)
                           {
-                              var url = window.location.toString();
-                              var langIndex = url.indexOf('lang=');
-                              if(langIndex == -1)
+                              lang = json["language"];
+                              if(lang)
                               {
-                                  console.log("Couldn't find required language. Do not change anything - show original version");
-                                  return;
+                                translate();
+                              }else
+                              {
+                                  console.log("Couldn't detemined language. Do not change anything - show original version");
                               }
-                              $(document.body).hide();
-                              var lang = url.substring(langIndex+5);
-                              var fileName = url.substring(url.lastIndexOf('/') + 1, url.lastIndexOf('.html'));
-                              console.log(fileName);
-                              var NJsonsProcessed = 0;
+                          });
 
+                        </script>
 
-                              $.getJSON(
-                              "lang/" + lang + "/text/" + fileName + ".json",
-                              function(json)
-                              {
-                                  console.log("God give me strength!");
-                                  document.title = json.lesson_title_translated;
-                                  document.getElementById('lesson_headline').innerHTML = json.lesson_headline_translated;
-                                  for(var phrase in json.phrases)
-                                  {
-                                      i = phrase.indexOf('_');
-                                      if(phrase[i + 1] == 'e') // begining of english
-                                      {
-                                          continue;
-                                      }
-                                      phraseNum = phrase.substr(0, i);
-                                      document.getElementById("phrases." + phraseNum).innerHTML = json.phrases[phrase];
-                                  }
-                              }).always(function(json) {
-                                  NJsonsProcessed += 1;
-                                  if(NJsonsProcessed == 2)
-                                  {
-                                      console.log("show from text");
-                                      $(document.body).show();
-                                  }
-                              });
-
-                              $.getJSON(
-                              "lang/" + lang + "/links/scriptures.json",
-                              function(json)
-                              {
-                                  for(var passage in json.scripture)
-                                  {
-                                    var link = document.getElementById("link." + passage);
-                                    if(link != null)
-                                    {
-                                        link.href = json.scripture[passage];
-                                    }
-                                    link = document.getElementById("link2." + passage);
-                                    if(link != null)
-                                    {
-                                        link.href = json.scripture[passage];
-                                    }
-                                    link = document.getElementById("link3." + passage);
-                                    if(link != null)
-                                    {
-                                        link.href = json.scripture[passage];
-                                    }
-                                    link = document.getElementById("link4." + passage);
-                                    if(link != null)
-                                    {
-                                        link.href = json.scripture[passage];
-                                    }
-                               }
-                              }).always(function(json) {
-                                  NJsonsProcessed += 1;
-                                  if(NJsonsProcessed == 2)
-                                  {
-                                      console.log("show from scriptures");
-                                      $(document.body).show();
-                                  }
-                              });
-
-                          $.getJSON(
-                              "lang/" + lang + "/links/audio.json",
-                              function(json)
-                              {
-                                  var audio = document.getElementById("audio");
-
-                                  var mp3 = document.getElementById(fileName + "_mp3");
-                                  var mp3Src = json[fileName + "_mp3"];
-                                  if(mp3Src)	mp3.src = mp3Src;
-
-                                  var m4a = document.getElementById(fileName + "_m4a");
-                                  var m4aSrc = json[fileName + "_m4a"];
-                                  if(m4aSrc) m4a.src = m4aSrc;
-
-                                  var ogg = document.getElementById(fileName + "_ogg");
-                                  var oggSrc = json[fileName + "_ogg"];
-                                  if(oggSrc) ogg.src = oggSrc;
-
-                                  audio.load();
-                              });
-
-                          }
-
-                          translate();
-
-
-                          </script>
+                          
 
                           
 
