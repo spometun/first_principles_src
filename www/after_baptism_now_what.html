@@ -114,15 +114,25 @@
 
                           
 
+                        
+
                         <script type="text/javascript">
 
                         var lang;
 
                         function translate()
                         {
-                            $(document.body).hide();
                             var url = window.location.toString();
-                            var fileName = url.substring(url.lastIndexOf('/') + 1, url.lastIndexOf('.html'));
+                                     var fileName;
+                            var poseEndName =  url.lastIndexOf('.html');
+                            if(poseEndName != -1)
+                            {
+                             fileName = url.substring(url.lastIndexOf('/') + 1, poseEndName);
+                            }else
+                            {
+                                fileName = "index";
+                            }
+
                             console.log(fileName);
                             var NJsonsProcessed = 0;
 
@@ -192,7 +202,7 @@
                             "lang/" + lang + "/links/audio.json",
                             function(json)
                             {
-                                var audio = document.getElementById("audio");
+
 
                                 var mp3 = document.getElementById(fileName + "_mp3");
                                 var mp3Src = json[fileName + "_mp3"];
@@ -206,12 +216,16 @@
                                 var oggSrc = json[fileName + "_ogg"];
                                 if(oggSrc) ogg.src = oggSrc;
 
-                                audio.load();
+                                          var audio = document.getElementById("audio");
+                                          if(audio)
+                                          {
+                                    audio.load();
+                                }
                             });
 
                         }
 
-
+                                  $(document.body).hide();
                           $.getJSON("language.json",function(json)
                           {
                               lang = json["language"];
@@ -220,11 +234,17 @@
                                 translate();
                               }else
                               {
-                                  console.log("Couldn't detemined language. Do not change anything - show original version");
+                                  console.log("Couldn't determine language. Do not change anything - show original version");
+                                  $(document.body).show();
                               }
-                          });
+                          }).fail(function(d) {
+                                        console.log("Couldn't find language file. Do not change anything - show original version");
+                                  $(document.body).show();
+                                });
 
                         </script>
+
+                          
 
                           
 
