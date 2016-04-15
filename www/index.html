@@ -60,7 +60,7 @@ var lang = "ru";
 
 		<div class="fpPageFooter">
 
-		<a href="contact_us.html" rel = "external" data-role="button"><span id = "phrases.p21">Contact Us</span></a>
+		<a href="contact_us.html?lang=ru" rel = "external" data-role="button"><span id = "phrases.p21">Contact Us</span></a>
 
 		<div class='social'>
 		<a href='http://www.facebook.com/sharer.php?u=http://usd21.org/m/' class='social_icon facebook' rel="nofollow"></a>
@@ -107,58 +107,7 @@ $( '[data-role=page]' ).live( 'pageshow', function (event, ui) {
 });
 
 
-function translate() 
-{
-   $(document.body).hide();
-	var NJsonProcessed = 0;
-    
-	$.getJSON(
-	"lang/" + lang + "/text/index.json", 
-	function(json)
-    {
-        console.log("God give me strength!");
-        document.title = json.lesson_title_translated;
-        document.getElementById('lesson_headline').innerHTML = json.lesson_headline_translated;
-		for(var phrase in json.phrases)
-		{
-			i = phrase.indexOf('_');
-			if(phrase[i + 1] == 'e') // begining of english			
-			{
-				continue;			
-			}
-			phraseNum = phrase.substr(0, i);	
-            document.getElementById("phrases." + phraseNum).innerHTML = json.phrases[phrase];
-		}
-		NJsonProcessed += 1;
-		if(NJsonProcessed == 2)
-		{
-	        console.log("show from text");	
-			$(document.body).show();
-		}        
-    });
 
-	$.getJSON(
-    "lang/" + lang + "/links/scriptures.json",
-    function(json)
-    {
-        for(var passage in json.scripture)
-        {
-            var link = document.getElementById("link." + passage);
-			if(link != null)
-			{
-	            link.href = json.scripture[passage];
-			}
-        }
-		NJsonProcessed += 1;
-		if(NJsonProcessed == 2)
-		{
-	        console.log("show from scriptures");	
-			$(document.body).show();
-		}
-    });
-
-}
-translate();
 
 </script>
 
@@ -167,6 +116,89 @@ translate();
 <script type="text/javascript">
     app.initialize();
 </script>
+
+ <script type="text/javascript">
+
+                          function translate()
+                          {
+							  $(document.body).hide();                             
+							  var url = window.location.toString();
+                             
+                              var fileName = url.substring(url.lastIndexOf('/') + 1, url.lastIndexOf('.html'));
+                              console.log(fileName);
+                              var NJsonsProcessed = 0;
+
+
+                              $.getJSON(
+                              "lang/" + lang + "/text/" + fileName + ".json",
+                              function(json)
+                              {
+                                  console.log("God give me strength!");
+                                  document.title = json.lesson_title_translated;
+                                  document.getElementById('lesson_headline').innerHTML = json.lesson_headline_translated;
+                                  for(var phrase in json.phrases)
+                                  {
+                                      i = phrase.indexOf('_');
+                                      if(phrase[i + 1] == 'e') // begining of english
+                                      {
+                                          continue;
+                                      }
+                                      phraseNum = phrase.substr(0, i);
+                                      document.getElementById("phrases." + phraseNum).innerHTML = json.phrases[phrase];
+                                  }
+                              }).always(function(json) {
+                                  NJsonsProcessed += 1;
+                                  if(NJsonsProcessed == 2)
+                                  {
+                                      console.log("show from text");
+                                      $(document.body).show();
+                                  }
+                              });
+
+                              $.getJSON(
+                              "lang/" + lang + "/links/scriptures.json",
+                              function(json)
+                              {
+                                  for(var passage in json.scripture)
+                                  {
+                                    var link = document.getElementById("link." + passage);
+                                    if(link != null)
+                                    {
+                                        link.href = json.scripture[passage];
+                                    }
+                                    link = document.getElementById("link2." + passage);
+                                    if(link != null)
+                                    {
+                                        link.href = json.scripture[passage];
+                                    }
+                                    link = document.getElementById("link3." + passage);
+                                    if(link != null)
+                                    {
+                                        link.href = json.scripture[passage];
+                                    }
+                                    link = document.getElementById("link4." + passage);
+                                    if(link != null)
+                                    {
+                                        link.href = json.scripture[passage];
+                                    }
+                               }
+                              }).always(function(json) {
+                                  NJsonsProcessed += 1;
+                                  if(NJsonsProcessed == 2)
+                                  {
+                                      console.log("show from scriptures");
+                                      $(document.body).show();
+                                  }
+                              });
+
+                         }
+
+                          translate();
+
+
+                          </script>
+
+
 
 </body>
 </html>
