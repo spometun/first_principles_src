@@ -12,7 +12,7 @@
  
     <content src="index.html"/>
 
-  	<icon src="icon.png" />
+	<icon src="lang/ru/images/icons/icon.png" />
   
   	<!-- Android icons -->
 	<icon src="lang/ru/images/icons/36x36.png" gap:platform="android" width="36" height="36" />
