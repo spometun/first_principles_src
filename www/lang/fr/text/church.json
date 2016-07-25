@@ -1,4 +1,4 @@
-S{
+{
     "metadata":
     {
         "language_name_in_english": "French",
@@ -14,7 +14,7 @@ S{
     "phrases":
     {
         "p1_english": "Colossians 1:15-18",
-        "p1_translated": "colossiens 1:15-18",
+        "p1_translated": "Colossiens 1:15-18",
         "p2_english": "The church is the body of Christ.  The body needs the head.  The church is essential to Christianity.",
         "p2_translated": "L'Eglise est le corps de Christ. Le corps a besoin de la tête. L'Eglise est Indispensable pour le chretianisme.",
         "p3_english": "HEAD",
@@ -58,7 +58,7 @@ S{
         "p22_english": "Foundation:  Apostles and Prophets",
         "p22_translated": "Fondément: Apôtres et prophètes",
         "p23_english": "Apostles = New Testament Bible",
-        "p23_translated":"Аpôtres–New Testament Bible"
+        "p23_translated":"Аpôtres–New Testament Bible",
         "p24_english": "Prophets = Old Testament",
         "p24_translated": "Prophètes – Ancien Testament",
         "p25_english": "The church is based on the Word of God only.",
@@ -246,7 +246,7 @@ S{
         "p116_english": "Home",
         "p116_translated": "Maison",
         "p117_english": "Contact Us",
-        "p117_translated": "Contactez-nous",
+        "p117_translated": "Contactez-Nous",
         "p118_english": "© 2013 International Christian Churches (SoldOut Discipling Movement)",
         "p118_translated": "© 2016 Eglise Chrétienne Internationnale(Mouvement de disciples)"
     }

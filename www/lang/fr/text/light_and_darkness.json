@@ -7,12 +7,14 @@
         "translator1_email": "Katende.Fabrice@yahoo.com",
         "translator1_date": "2016-06-12"
     },
+	"lesson_title_english": "Light and Darkness",
+    "lesson_title_translated": "Lumière et Ténèbres",
     "lesson_headline_english": "Light and Darkness",
     "lesson_headline_translated": "Lumière et Ténèbres",
     "phrases":
     {
         "p1_english": "It is often helpful to begin this study by constructing a \"spiritual timeline\" with the person whom you are helping to become a disciple.",
-        "p1_translated": ".",
+        "p1_translated": "Il est souvent important de commencer cette étude en construisant une chronologie spirituelle avec la personne que vous aidez à devenir disciple",
         "p2_english": "Introduction:",
         "p2_translated": "Introduction:",
         "p3_english": "1 Peter 2:9-10",
@@ -264,7 +266,7 @@
         "p126_english": "Home",
         "p126_translated": "Maison",
         "p127_english": "Contact Us",
-        "p127_translated": "Сontactez-nous",
+        "p127_translated": "Сontactez-Nous",
         "p128_english": "© 2013 International Christian Churches (SoldOut Discipling Movement)",
         "p128_translated": "© 2016 Eglise Chrétienne Internationnale (Mouvement des Disciples)"
     }

@@ -9,6 +9,8 @@
     },
     "lesson_headline_english": "The Book of Acts",
     "lesson_headline_translated": "Le livre des Actes",
+	"lesson_title_english": "The Book of Acts",
+    "lesson_title_translated": "Le livre des Actes",
     "phrases":
     {
         "p1_english": "Chapters 1-8",
@@ -22,7 +24,7 @@
         "p5_english": "Home",
         "p5_translated": "Maison",
         "p6_english": "Contact Us",
-        "p6_translated": "Сontacter-nous",
+        "p6_translated": "Сontactez-Nous",
         "p7_english": "© 2013 International Christian Churches (SoldOut Discipling Movement)",
         "p7_translated": "© 2016 Eglise Chrétienne Internationale (Mouvement des disciples)"
     }
