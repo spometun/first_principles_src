@@ -12,8 +12,8 @@ os.mkdir(dst_root)
 shutil.copytree(src_root + "jquery", dst_root + "jquery")
 shutil.copytree(src_root + "images", dst_root + "images")
 shutil.copy(src_root + "style.css", dst_root + "style.css")
-shutil.copy(src_root + "index.html", dst_root + "index.html")
 
 
 os.mkdir(dst_root + "studies")
-generateFullHtml("seeking_god")
+generateFullHtml(src_root, dst_root, "index", False)
+generateFullHtml(src_root, dst_root, "seeking_god")

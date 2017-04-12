@@ -1,19 +1,16 @@
-def generateFullHtml(study_name):
-	header_path = "../data/header.html"
-	footer_path = "../data/footer.html"
-	study_path = "../data/studies/" + study_name + ".html"
-	out_path = "../../0_template/studies/" + study_name + ".html"
+def generateFullHtml(src_root, dst_root, study_name, is_write_header = True):
 	
-	header_file = open(header_path, "r") 
-	footer_file = open(footer_path, "r")
-	study_file = open(study_path)
+	header_file = open(src_root + "/header.html", "r") 
+	footer_file = open(src_root + "/footer.html", "r")
+	study_file = open(src_root + "/studies/" + study_name + ".html")
 
 	header = header_file.read()
 	footer = footer_file.read()
 	study = study_file.read()
 
-	out_file = open(out_path, "w")
-	out_file.write(header)
+	out_file = open(dst_root + "/studies/" + study_name + ".html", "w")
+	if is_write_header:
+		out_file.write(header)
 	out_file.write(study)
 	out_file.write(footer)
 
