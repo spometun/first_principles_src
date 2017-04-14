@@ -16,8 +16,8 @@ shutil.copy(src_root + "style.css", dst_root + "style.css")
 
 
 os.mkdir(dst_root + "studies")
-generateFullHtml(src_root, dst_root, "index", False)
-generateFullHtml(src_root, dst_root, "seeking_god")
+generateIndex(src_root, dst_root)
+generateStudy(src_root, dst_root, "seeking_god", "Seeking God")
 
 os.mkdir(dst_root + "lang")
 os.mkdir(dst_root + "lang/en")

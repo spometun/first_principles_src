@@ -1,4 +1,11 @@
-def generateFullHtml(src_root, dst_root, study_name, is_write_header = True):
+
+def generateStudy(src_root, dst_root, study_name, study_title):
+    generateFullHtml(src_root, dst_root, study_name, study_title, True)
+
+def generateIndex(src_root, dst_root):
+    generateFullHtml(src_root, dst_root, "index", "", False)
+
+def generateFullHtml(src_root, dst_root, study_name, study_title, is_write_header):
 	
 	header_file = open(src_root + "/header.html", "r") 
 	footer_file = open(src_root + "/footer.html", "r")
@@ -10,7 +17,9 @@ def generateFullHtml(src_root, dst_root, study_name, is_write_header = True):
 
 	out_file = open(dst_root + "/studies/" + study_name + ".html", "w")
 	if is_write_header:
-		out_file.write(header)
+            header = header.replace("study_title", "_(\"" + study_title + "\")")
+            header = header.replace("study_header", "_(\"" + study_title + "\")")
+            out_file.write(header)
 	out_file.write(study)
 	out_file.write(footer)
 
