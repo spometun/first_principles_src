@@ -1,4 +1,6 @@
 *.pyc
 *.swp
+*.mo
 *~
 0_template
+1_template_with_languages
