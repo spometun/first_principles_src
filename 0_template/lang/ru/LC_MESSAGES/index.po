@@ -9,25 +9,53 @@ msgstr ""
 
 #: 
 msgid "First Principles"
-msgstr ""
+msgstr "Первые принципы Христианства"
 
 #: 
 msgid "Introduction"
-msgstr ""
+msgstr "Введение"
 
 #: 
 msgid "The Book of John"
-msgstr ""
+msgstr "Евангелие от Иоанна"
 
 #: 
 msgid "Seeking God"
-msgstr ""
+msgstr "В поисках Бога"
 
 #: 
 msgid "The Word of God"
-msgstr ""
+msgstr "Слово Бога"
 
 #: 
 msgid "Discipleship"
-msgstr ""
+msgstr "Ученичество"
+
+#: 
+msgid "Home"
+msgstr "На главную"
+
+#: 
+msgid "Blessed means happy (superlatively happy)"
+msgstr "«Блаженны» означает «счастливы» (очень счастливы)"
+
+#: 
+msgid "Happiness is not the goal of one who seeks God but the \"by-product"
+msgstr "Счастье – это не цель того, кто ищет Бога, а «бонус»"
+
+#: 
+msgid "To seek God you must do it with all your heart"
+msgstr "Если ты ищешь Бога, то должен делать это всем своим сердцем"
+
+#: 
+msgid "Seeking God means to \"keep His statutes\""
+msgstr "Искать Бога значит «хранить Его откровения»"
+
+#: 
+msgid "Do not worry &mdash; ironic &mdash; can not add a single hour to your life"
+msgstr "Не беспокойся – ты не можешь добавить ни одного дополнительного часа к своей жизни"
+
+#: 
+msgid "God knows your needs"
+msgstr "Богу известны твои нужды"
 
