@@ -1,15 +1,61 @@
-# First Principles translation
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+"Project-Id-Version: First Principles\n"
+"Language: en\n"
+
+#: 
 msgid "First Principles"
 msgstr "First Principles"
-msgid "First Principles"
-msgstr "First Principles"
+
+#: 
 msgid "Introduction"
 msgstr "Introduction"
+
+#: 
 msgid "The Book of John"
 msgstr "The Book of John"
+
+#: 
 msgid "Seeking God"
 msgstr "Seeking God"
+
+#: 
 msgid "The Word of God"
 msgstr "The Word of God"
+
+#: 
 msgid "Discipleship"
 msgstr "Discipleship"
+
+#: 
+msgid "Home"
+msgstr "Home"
+
+#: 
+msgid "Blessed means happy (superlatively happy)"
+msgstr "Blessed means happy (superlatively happy)"
+
+#: 
+msgid "Happiness is not the goal of one who seeks God but the \"by-product"
+msgstr "Happiness is not the goal of one who seeks God but the \"by-product"
+
+#: 
+msgid "To seek God you must do it with all your heart"
+msgstr "To seek God you must do it with all your heart"
+
+#: 
+msgid "Seeking God means to \"keep His statutes\""
+msgstr "Seeking God means to \"keep His statutes\""
+
+#: 
+msgid "Do not worry &mdash; ironic &mdash; can not add a single hour to your life"
+msgstr "Do not worry &mdash; ironic &mdash; can not add a single hour to your life"
+
+#: 
+msgid "God knows your needs"
+msgstr "God knows your needs"
+
