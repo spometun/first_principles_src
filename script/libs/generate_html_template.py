@@ -1,26 +1,26 @@
 
-def generateStudy(src_root, outstudies_path, study_name, study_title):
-    generateFullHtml(src_root, outstudies_path, study_name, study_title, True)
+def generateStudy(src_root, outstudies_path, study):
+    if(study.name != "index"):
+        generateFullHtml(src_root, outstudies_path, study, True)
+    else:
+        generateFullHtml(src_root, outstudies_path, study, False)    
+            
 
-def generateIndex(src_root, outstudies_path):
-    generateFullHtml(src_root, outstudies_path, "index", "", False)
-
-def generateFullHtml(src_root, outstudies_path, study_name, study_title, is_write_header):
+def generateFullHtml(src_root, outstudies_path, study, is_write_header):
 	
 	header_file = open(src_root + "/header.html", "r") 
 	footer_file = open(src_root + "/footer.html", "r")
-	study_file = open(src_root + "/studies/english/" + study_name + ".html")
+	study_file = open(src_root + "/studies/english/" + study.name + ".html")
 
 	header = header_file.read()
 	footer = footer_file.read()
-	study = study_file.read()
-
-	out_file = open(outstudies_path + "/" + study_name + ".html", "w")
+	body = study_file.read()
+	out_file = open(outstudies_path + "/" + study.name + ".html", "w")
 	if is_write_header:
-            header = header.replace("study_title", "_(\"" + study_title + "\")")
-            header = header.replace("study_header", "_(\"" + study_title + "\")")
+            header = header.replace("study_title", "_(\"" + study.title + "\")")
+            header = header.replace("study_header", "_(\"" + study.title + "\")")
             out_file.write(header)
-	out_file.write(study)
+	out_file.write(body)
 	out_file.write(footer)
 
 	header_file.close()
