@@ -1,29 +1,26 @@
 import os
 import shutil
+from context import *
 from libs.utils import *
 from libs.generate_html_template import *
 from libs.pipeline_classes import *
 
-src_root = "../data/"
-dst_root = "../../template/"
+g_src_data_path = "../data/"
+print(ROOT)
 
-
-
-
-def prepare_dst_folder_and_init_pathes(src_path, dst_path):
+def prepare_dst_folder_and_init_pathes():
+    dst_path = ROOT + TEMPLATE
     recreate_dir(dst_path)
-    recreate_dir(dst_path + "/www")
-    shutil.copytree(src_path + "/jquery", dst_path + "/www/jquery")
-    shutil.copytree(src_path + "/images", dst_path + "/www/images")
-    shutil.copy(src_path + "/style.css", dst_path + "/www/style.css")
-    os.mkdir(dst_path + "/www/studies")
-    os.mkdir(dst_path + "/www/studies/english")
-    global g_path_to_studies
-    g_path_to_studies = dst_path + "/www/studies/english"
-    os.mkdir(dst_path + "/lang")
-    os.mkdir(dst_path + "/lang/english_template")
-    global g_path_to_english_messages
-    g_path_to_english_messages = dst_path + "/lang/english_template/"
+    recreate_dir(dst_path + WWW)
+    copy_fixed_stuff(g_src_data_path, dst_path + WWW)
+    os.mkdir(dst_path + WWW + STUDIES)
+    os.mkdir(dst_path + WWW + STUDIES + ENGLISH)
+    global g_path_to_studies 
+    g_path_to_studies = dst_path + WWW + STUDIES + ENGLISH
+    os.mkdir(dst_path + LANG)
+    os.mkdir(dst_path + LANG + ENGLISH_TEMPLATE)
+    global g_path_to_english_template
+    g_path_to_english_template = dst_path + LANG + ENGLISH_TEMPLATE
 
 def generate_po(path_to_studies, output_folder, study_name):
     input_file = open(path_to_studies + "/" + study_name + ".html")
@@ -38,15 +35,15 @@ def generate_po(path_to_studies, output_folder, study_name):
     parser.go()
 
 def process_index():
-    generateIndex(src_root, g_path_to_studies)
-    generate_po(g_path_to_studies, g_path_to_english_messages, "index")
+    generateIndex(g_src_data_path, g_path_to_studies)
+    generate_po(g_path_to_studies, g_path_to_english_template, "index")
 
 def process_study(study_name, study_title):
-    generateStudy(src_root, g_path_to_studies, study_name, study_title)
-    generate_po(g_path_to_studies, g_path_to_english_messages, study_name)
+    generateStudy(g_src_data_path, ROOT + TEMPLATE + WWW + STUDIES + ENGLISH, study_name, study_title)
+    generate_po(g_path_to_studies, g_path_to_english_template, study_name)
 
 
-prepare_dst_folder_and_init_pathes(src_root, dst_root)
+prepare_dst_folder_and_init_pathes()
 process_index()
 process_study("seeking_god", "Seeking God")
 

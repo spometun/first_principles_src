@@ -1,20 +1,21 @@
 import sys
 sys.path.insert(0,'/usr/lib/python3/dist-packages/')
 import gettext
-import polib                
+import polib
+from context import *
 from libs.pipeline_classes import *
 from libs.utils import *
 
-def generate_language(root, language):
-    lang_root = root + "/lang"
-    src_studies = root + "/template/www/studies/english"
-    dst_studies = root + "/www/studies"
+def generate_language(language):
+    lang_root = ROOT + LANG
+    src_studies = ROOT + TEMPLATE + WWW + STUDIES + ENGLISH
+    dst_studies = ROOT + WWW + STUDIES
 
-    po = polib.pofile(lang_root + "/" + language + "/LC_MESSAGES/first_principles.po")
-    po.save_as_mofile(lang_root + "/" + language + "/LC_MESSAGES/first_principles.mo")
+    po = polib.pofile(lang_root + "/" + language + "/LC_MESSAGES/" + FP_DOMAIN + ".po")
+    po.save_as_mofile(lang_root + "/" + language + "/LC_MESSAGES/" + FP_DOMAIN + ".mo")
 
-    gettext.find("first_principles", lang_root, language)
-    translation = gettext.translation("first_principles", localedir=lang_root, languages=[language])
+    gettext.find(FP_DOMAIN, lang_root, language)
+    translation = gettext.translation(FP_DOMAIN, localedir=lang_root, languages=[language])
     print(translation)
     print(translation.gettext("God knows your needs"))
     print(translation.gettext("Hello World"))
