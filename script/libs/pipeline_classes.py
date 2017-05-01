@@ -35,9 +35,8 @@ class TranslatorSinkSource:
         self.counter += 1
 
 class POGeneratorSinkSource:
-    def __init__(self, is_generate_template = True):
+    def __init__(self):
         self.counter = 0
-        self.is_generate_template = is_generate_template
     def output(self, text):
         self.sink.on_input(text)
     def on_input(self, text):
@@ -45,7 +44,5 @@ class POGeneratorSinkSource:
             self.output("# First Principles translation")
         if(self.counter % 2):
             self.output("\nmsgid " + "\"" + text + "\"")
-            if (self.is_generate_template):
-                text = ""
-            self.output("\nmsgstr " + "\"" + text + "\"")
+            self.output("\nmsgstr " + "\"" + "\"")
         self.counter += 1

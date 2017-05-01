@@ -9,7 +9,7 @@ def generateFullHtml(src_root, outstudies_path, study_name, study_title, is_writ
 	
 	header_file = open(src_root + "/header.html", "r") 
 	footer_file = open(src_root + "/footer.html", "r")
-	study_file = open(src_root + "/studies/" + study_name + ".html")
+	study_file = open(src_root + "/studies/english/" + study_name + ".html")
 
 	header = header_file.read()
 	footer = footer_file.read()
