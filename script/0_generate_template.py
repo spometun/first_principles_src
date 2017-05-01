@@ -6,7 +6,7 @@ from libs.generate_html_template import *
 from libs.pipeline_classes import *
 
 g_src_data_path = "../data/"
-print(ROOT)
+
 
 def prepare_dst_folder_and_init_pathes():
     dst_path = ROOT + TEMPLATE

@@ -14,9 +14,8 @@ def generate_language(language):
     po = polib.pofile(lang_root + "/" + language + "/LC_MESSAGES/" + FP_DOMAIN + ".po")
     po.save_as_mofile(lang_root + "/" + language + "/LC_MESSAGES/" + FP_DOMAIN + ".mo")
 
-    gettext.find(FP_DOMAIN, lang_root, language)
+    #gettext.find(FP_DOMAIN, lang_root, language)
     translation = gettext.translation(FP_DOMAIN, localedir=lang_root, languages=[language])
-    print(translation)
     print(translation.gettext("God knows your needs"))
     print(translation.gettext("Hello World"))
     recreate_dir(dst_studies + "/" + language)
