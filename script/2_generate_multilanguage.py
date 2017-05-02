@@ -10,4 +10,4 @@ os.mkdir(ROOT + WWW + STUDIES)
 
 generate_language("en")
 generate_language("ru")
-generate_language("ua")
+generate_language("uk")
