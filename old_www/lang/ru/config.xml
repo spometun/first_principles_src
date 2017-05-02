@@ -1,0 +1,80 @@
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="org.moscowicc.first_principles" version="1.2.3">
+ 
+<name>First Principles Russian</name>
+
+	<description>
+	The elementary teachings, according to the scriptures of the Bible, about what it means to be a Christian.
+	</description>
+
+	<author href="http://usd21.org/m/" email="firstprinciples@usd21.org">
+	Kip McKean
+	</author>
+ 
+    <content src="index.html"/>
+
+	<icon src="lang/ru/images/icons/icon.png" />
+  
+  	<!-- Android icons -->
+	<icon src="lang/ru/images/icons/36x36.png" gap:platform="android" width="36" height="36" />
+	<icon src="lang/ru/images/icons/48x48.png" gap:platform="android" gap:density="ldpi" />
+	<icon src="lang/ru/images/icons/48x48.png" gap:platform="android" width="48" height="48" />
+	<icon src="lang/ru/images/icons/72x72.png" gap:platform="android" gap:density="mdpi" />
+	<icon src="lang/ru/images/icons/72x72.png" gap:platform="android" width="72" height="72" />
+	<icon src="lang/ru/images/icons/96x96.png" gap:platform="android" gap:density="hdpi" />
+	<icon src="lang/ru/images/icons/96x96.png" gap:platform="android" width="96" height="96" />
+	<icon src="lang/ru/images/icons/114x114.png" gap:platform="android" gap:density="xhdpi" />
+	
+	<!-- Android splash -->
+	<gap:splash src="lang/ru/images/splash/320x480.png" gap:platform="android" gap:density="ldpi" />
+	<gap:splash src="lang/ru/images/splash/480x800.png" gap:platform="android" gap:density="mdpi" />
+	<gap:splash src="lang/ru/images/splash/640x960.png" gap:platform="android" gap:density="hdpi" />
+	<gap:splash src="lang/ru/images/splash/640x960.png" gap:platform="android" gap:density="xhdpi" />
+	
+	<!-- iOS icons -->
+	<icon src="lang/ru/images/icons/57x57.png" width="57" height="57" />
+	<icon src="lang/ru/images/icons/72x72.png" gap:platform="ios" width="72" height="72" />
+	<icon src="lang/ru/images/icons/114x114.png" width="114" height="114" />
+	<icon src="lang/ru/images/icons/144x144.png" width="144" height="144" />
+
+	<!-- iOS splash -->
+	<gap:splash src="lang/ru/images/splash/320x480.png" gap:platform="ios" width="320" height="480" />
+	<gap:splash src="lang/ru/images/splash/640x960.png" gap:platform="ios" width="640" height="960" />
+	<gap:splash src="lang/ru/images/splash/768x1024.png" gap:platform="ios" width="768" height="1024" />
+	<gap:splash src="lang/ru/images/splash/1024x768.png" gap:platform="ios" width="1024" height="768" />
+	<gap:splash src="lang/ru/images/splash/1536x2008.png" gap:platform="ios" width="1536" height="2008" />
+	<gap:splash src="lang/ru/images/splash/2048x1496.png" gap:platform="ios" width="2048" height="1496" />
+
+ 
+ <preference name="SplashScreenDelay" value="4000" />
+
+ <preference name="permissions" value="none"/>
+  <preference name="orientation" value="auto"/>
+  <preference name="target-device" value="universal"/>
+  <preference name="fullscreen" value="true"/>
+  <preference name="webviewbounce" value="true"/>
+  <preference name="prerendered-icon" value="true"/>
+  <preference name="stay-in-webview" value="false"/>
+  <preference name="ios-statusbarstyle" value="black-opaque"/>
+  <preference name="detect-data-types" value="true"/>
+  <preference name="exit-on-suspend" value="false"/>
+  <preference name="show-splash-screen-spinner" value="true"/>
+  <preference name="auto-hide-splash-screen" value="true"/>
+  <preference name="disable-cursor" value="false"/>
+  <preference name="android-minSdkVersion" value="14"/>
+  <preference name="android-installLocation" value="auto"/>
+  
+  
+  
+  <gap:plugin name="org.apache.cordova.splashscreen"/>
+  <access origin="*"/>
+  <plugin name="cordova-plugin-whitelist" version="1"/>
+ <!-- <allow-intent href="http://*/*"/> -->
+ 
+  <platform name="android">
+    <allow-intent href="market:*"/>
+  </platform>
+  <platform name="ios">
+    <allow-intent href="itms:*"/>
+    <allow-intent href="itms-apps:*"/>
+  </platform>
+</widget>

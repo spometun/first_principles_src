@@ -1,0 +1,35 @@
+{
+    "metadata":
+    {
+        "language_name_in_english": "French",
+        "language_name_local": "Français",
+        "translator1_name": "Fabrice Katende",
+        "translator1_email": "Katende.Fabrice@yahoo.com",
+        "translator1_date": "2016-06-29"
+    },
+    "lesson_headline_english": "Contact Us",
+    "lesson_headline_translated": "Сontactez-Nous",
+	"lesson_title_english": "Contact Us",
+    "lesson_title_translated": "Сontactez-Nous",
+    "mailto_technical" : "mailto:sergiy.pometun@usd21.org",
+    "mailto_biblical" : "mailto:Katende.Fabrice@yahoo.com",
+    "phrases":
+    {
+        "p1_english": "Do you have feedback, suggestions or questions regarding this mobile application or the First Principles study series?  Please let us know!",
+        "p1_translated": "Avez-vous une rétroaction, suggestion ou question regarder ce mobile d'application ou la série d'étude du premier principe? s'ils vous plait fait le nous savoir!",
+        "p2_english": "To contact us regarding technical questions, such as improving this application on mobile devices, send an e-mail to:",
+        "p2_translated": "Contactez-Nous si vous avez des questions techniques qui nous aiderons à l'amélioration de cette application sur les appareils mobiles soit laisser-nous un message dans notre adresse E.mail ",
+        "p3_english": "mobile@usd21.org",
+        "p3_translated": "sergiy.pometun@usd21.org",
+        "p4_english": "To contact us regarding the Biblical content of these First Principles studies, send an e-mail to:",
+        "p4_translated": "Contatez-Nous si vous desirez poursuivre ces études du Premier Principe d'un disciple, soit ecrivez-nous par notre E.mail",
+        "p5_english": "firstprinciples@usd21.org",
+        "p5_translated": "sblfff@gmail.com",
+        "p6_english": "We look forward to hearing from you!  We strive to respond promptly to all correspondence.",
+        "p6_translated": "Nous attendons avec impatience toutes vos questions et suggestions et nous vous promettons de repondre avec promptitude à toutes vos préoccupations",
+        "p7_english": "Home",
+        "p7_translated": "Maison",
+        "p8_english": "© 2013 International Christian Churches (SoldOut Discipling Movement)",
+        "p8_translated": "© 2016 Eglise Chrétienne Internationale (Mouvement des Disciples)"
+    }
+}

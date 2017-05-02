@@ -1,0 +1,23 @@
+{
+    "metadata":
+    {
+        "language_name_in_english": "Russian",
+        "language_name_local": "Русский",
+        "translator1_name": "Yauheni Sobaleu",
+        "translator1_email": "sblfff@gmail.com",
+        "translator1_date": "2015-12-20"
+    },
+    "lesson_title_english": "The Book of John",
+    "lesson_title_translated": "Евангелие от Иоанна",
+    "lesson_headline_english": "The Book of John",
+    "lesson_headline_translated": "Евангелие от Иоанна",
+    "phrases":
+    {
+        "p1_english": "Home",
+        "p1_translated": "К содержанию",
+        "p2_english": "Contact Us",
+        "p2_translated": "Свяжитесь с нами",
+        "p3_english": "© 2013 International Christian Churches (SoldOut Discipling Movement)",
+        "p3_translated": "© 2015 Международные Христианские Церкви (Движение полностью преданных учеников)"
+    }
+}

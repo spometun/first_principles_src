@@ -1,0 +1,23 @@
+{
+    "metadata":
+    {
+        "language_name_in_english": "French",
+        "language_name_local": "Français",
+        "translator1_name": "Fabrice Katende",
+        "translator1_email": "Katende.Fabrice@yahoo.com",
+        "translator1_date": "2016-06-29"
+    },
+    "lesson_title_english": "The Book of John",
+    "lesson_title_translated": "Le livre de Jean",
+    "lesson_headline_english": "The Book of John",
+    "lesson_headline_translated": "Le livre de Jean",
+    "phrases":
+    {
+        "p1_english": "Home",
+        "p1_translated": "Maison",
+        "p2_english": "Contact Us",
+        "p2_translated": "Сontactez-Nous",
+        "p3_english": "© 2013 International Christian Churches (SoldOut Discipling Movement)",
+        "p3_translated": "© 2016 Eglise Chrétienne Internationale (Mouvement des Disciples)"
+    }
+}
