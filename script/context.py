@@ -14,7 +14,7 @@ FP_DOMAIN = "first_principles"
 STUDY_LIST = []
 Study = namedtuple("Study", "name title")
 
-with open(ROOT + SRC + WWW + "/studies.json") as data:
+with open(ROOT + SRC + WWW + "/studies_list.json") as data:
     studies = json.load(data)
 
 for name in studies:
