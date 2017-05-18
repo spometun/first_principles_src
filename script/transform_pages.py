@@ -22,7 +22,9 @@ def remove_scripts(soup):
 def wrap_strings(soup):
     for string in soup(string=True):
         if not (string.isspace()):
-            string.replace_with('_("{}")'.format(string))
+            parent = string.parent
+            if not ("data-rel" in parent.attrs) or parent["data-rel"] != "dialog":
+                string.replace_with('_("{}")'.format(string))
         
 soup = BeautifulSoup(html, "html.parser")
 soup = soup.find("div", **{"data-role": "content"})
