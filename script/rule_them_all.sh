@@ -1,0 +1,3 @@
+python3 0_generate_template.py
+python3 1_copy_english_template_to_lang.py
+python3 2_generate_multilanguage.py
