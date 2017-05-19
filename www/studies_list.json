@@ -1,12 +1,12 @@
 {
-	"after_baptism_now_what": "After Baptism, Now What?",
-  "baptism_with_the_holy_spirit": "Baptism with the Holy Spirit",
-  "index": "",
-	"introduction": "Introduction",
-	"book_of_john": "The Book of John",
-	"seeking_god": "Seeking God",
-	"word_of_god": "The Word of God",
-	"discipleship": "Discipleship",
-	"coming_of_the_kingdom": "The Coming of the Kingdom",
-	"light_and_darkness": "Light and Darkness"
+    "0_index": "",
+	"1_introduction": "Introduction",
+	"3_book_of_john": "The Book of John",
+	"4_seeking_god": "Seeking God",
+	"5_word_of_god": "The Word of God",
+	"6_discipleship": "Discipleship",
+	"7_coming_of_the_kingdom": "The Coming of the Kingdom",
+	"8_light_and_darkness": "Light and Darkness",
+    "12_baptism_with_the_holy_spirit": "Baptism with the Holy Spirit",
+	"16_after_baptism_now_what": "After Baptism, Now What?"
 }
