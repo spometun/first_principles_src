@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """
     Automatic transforming html to template
         deletes spans and scripts
