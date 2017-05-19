@@ -16,6 +16,7 @@ window.onload = () => {
       const pattern = makePattern(language);
       if (pathname.includes(pattern)) {
         languageSelect.selectedIndex = i;
+        $('#language-select').selectmenu('refresh', true);
         curLanguage = language;
         curLanguagePattern = pattern;
       }
@@ -24,8 +25,6 @@ window.onload = () => {
 
     languageSelect.addEventListener('change', () => {
       const { selectedIndex } = languageSelect;
-      console.log(selectedIndex);
-      console.log(window.location);
       if (!pathname.includes(languages[selectedIndex])) {
         const newPattern = makePattern(languages[selectedIndex]);
         window.location = pathname.replace(curLanguagePattern, newPattern);
