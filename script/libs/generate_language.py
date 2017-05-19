@@ -1,5 +1,5 @@
+#!/usr/bin/env python3
 import sys
-sys.path.insert(0,'/usr/lib/python3/dist-packages/')
 import gettext
 import polib
 from context import *

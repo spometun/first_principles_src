@@ -1,4 +1,4 @@
-
+#!/usr/bin/env python3
 def generateStudy(src_root, outstudies_path, study):
     if(study.name != "index"):
         generateFullHtml(src_root, outstudies_path, study, True)
