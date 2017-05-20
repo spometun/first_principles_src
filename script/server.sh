@@ -1,5 +1,5 @@
 cd ../../
-URL=http://localhost:8000/www/studies/en/
+URL=http://localhost:8000/www/studies/en/0_index.html
 if which xdg-open > /dev/null
 then
   xdg-open $URL &
