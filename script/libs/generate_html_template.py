@@ -1,9 +1,6 @@
 
 def generateStudy(src_root, outstudies_path, study):
-    if(study.name != "index"):
-        generateFullHtml(src_root, outstudies_path, study, True)
-    else:
-        generateFullHtml(src_root, outstudies_path, study, False)    
+    generateFullHtml(src_root, outstudies_path, study, study.name != "0_index")
             
 
 def generateFullHtml(src_root, outstudies_path, study, is_write_header):
