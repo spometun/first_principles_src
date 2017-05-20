@@ -20,10 +20,13 @@ def prepare_dst_folder():
     global g_dst_english_template
     g_dst_english_template = dst_path + LANG + ENGLISH_TEMPLATE
 
+def cut_number(filename):
+    return filename.split("_", 1)[1];
+
 def generate_po(path_to_studies, output_folder, study_name):
     input_file = open(path_to_studies + "/" + study_name + ".html")
     input_text = input_file.read()
-    out_file_name = output_folder + "/" + study_name + ".pot"
+    out_file_name = output_folder + "/" + cut_number(study_name) + ".pot"
     out_file = open(out_file_name, "w")
     writer = WriterSink(out_file)
     parser = ParserSource(input_text)
