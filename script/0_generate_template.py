@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import os
 import shutil
+import polib
 from context import *
 from libs.utils import *
 from libs.generate_html_template import *
@@ -31,10 +32,13 @@ def generate_po(path_to_studies, output_folder, study_name):
     out_file = open(out_file_name, "w")
     writer = WriterSink(out_file)
     parser = ParserSource(input_text)
-    po_generator = POGeneratorSinkSource()
+    po_generator = POGeneratorSinkSource(study_name + ".html")
     parser.sink = po_generator
     po_generator.sink = writer
     parser.go()
+    out_file.close()
+    po = polib.pofile(out_file_name)
+    po.save(out_file_name + "2")
 
 
 def generate_studies_templates():

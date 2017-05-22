@@ -17,9 +17,9 @@ Study = namedtuple("Study", "name title")
 
 with open(ROOT + SRC + WWW + "/studies_list.json") as data:
     studies = json.load(data)
-
 for name in studies:
     STUDY_LIST.append(Study(name, studies[name]))
+    STUDY_LIST.sort()
     
     
 
