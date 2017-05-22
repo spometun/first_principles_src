@@ -1,4 +1,4 @@
-
+#!/usr/bin/env python3
 def generateStudy(src_root, outstudies_path, study):
     generateFullHtml(src_root, outstudies_path, study, study.name != "0_index")
             

@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 class ParserSource:
     def __init__(self, text):
         self.text = text
