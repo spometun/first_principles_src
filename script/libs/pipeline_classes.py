@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import polib
 
 class ParserSource:
     def __init__(self, text):
@@ -55,6 +56,29 @@ class POGeneratorSinkSource:
             self.output('\nmsgid ' + '"' + text + '"')
             self.output('\nmsgstr ' + '"' + '"')
         self.counter += 1
+
+
+class POGeneratorSink:
+    def __init__(self, file_name):
+        self.counter = 0
+        self.line_number = 0
+        self.file_name = file_name
+        self.pot = []
+    def output(self, text):
+        self.sink.on_input(text)
+    def on_input(self, text):
+        self.line_number += text.count('\n')
+#        if(self.counter == 0):
+#            self.output('# First Principles translation')
+        if(self.counter % 2):
+#            text = text.replace('"', '\\"')
+             poEntry = polib.POEntry(msgid = text, linenum = str(self.line_number), occurrences = [(self.file_name, self.line_number)])
+             self.pot.append(poEntry)                              
+#            self.output('\n#: ' + self.file_name + ':' + str(self.line_number))
+#            self.output('\nmsgid ' + '"' + text + '"')
+#            self.output('\nmsgstr ' + '"' + '"')
+        self.counter += 1
+
 
 
 

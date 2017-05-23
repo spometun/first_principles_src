@@ -43,6 +43,16 @@ def generate_po(path_to_studies, output_folder, study_name):
     po_generator.sink = writer
     parser.go()
 
+def generate_pot(path_to_studies, study_name):
+    input_file = open(path_to_studies + "/" + study_name + ".html")
+    input_text = input_file.read()
+    parser = ParserSource(input_text)
+    po_generator = POGeneratorSink(study_name + ".html")
+    parser.sink = po_generator
+    parser.go()
+    return po_generator.pot
+
+
 
 def post_process_po(output_folder, study_name):
     global g_terms_dict
@@ -58,18 +68,38 @@ def post_process_po(output_folder, study_name):
 
 
 def generate_translation_templates():
-    print("\nGENERATING TRANSLATION TEMPLATES")
     path_to_studies = ROOT + TEMPLATE + WWW + STUDIES + ENGLISH
     output_folder =  ROOT + TEMPLATE + LANG + ENGLISH_TEMPLATE
+    studies_pot = []
+
+    print("\nPARSING TRANSLATION TEMPLATES")
     for study in STUDY_LIST:
         print(study.name)
-        generate_po(path_to_studies, output_folder, study.name)
-        post_process_po(output_folder, study.name)
-    print("\n\nREPEATED TERMS (except index):\n")
-    for key in g_terms_dict:
-        studies = g_terms_dict[key]
-        if(len(studies) >= 2 and studies.count("index") == 0):
-            print(key, "    ", studies)
+        study_pot = generate_pot(path_to_studies, study.name)
+        studies_pot.append((study.name, study_pot))
+
+    print("\nGENERATION TRANSLATION CATALOG")        
+    terms = {}
+    for name, study_pot in studies_pot:
+        for entry in study_pot:
+            term = entry.msgid
+            if term not in terms:
+                terms[term] = 1
+            else:
+                terms[term] += 1
+                
+    all_studies_file = polib.POFile(check_for_duplicates = True, wrapwidth = 0)   
+    for name, study_pot in studies_pot:
+        print(name)
+        study_file = polib.POFile(check_for_duplicates = True, wrapwidth = 0)
+        for entry in study_pot:
+            if terms[entry.msgid] >= 2:
+                entry.msgctxt = name  + '.html line:' + entry.linenum
+            study_file.append(entry)
+            all_studies_file.append(entry)
+        study_file.save(output_folder + '/' + name + ".pot")    
+    all_studies_file.save(output_folder + '/' + FP_DOMAIN + ".pot")    
+    
 
 g_terms_dict = {};  
 prepare_dst_folder()
