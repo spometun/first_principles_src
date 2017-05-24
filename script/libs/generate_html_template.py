@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 def generateStudy(src_root, outstudies_path, study):
-    generateFullHtml(src_root, outstudies_path, study, study.name != "0_index")
+    generateFullHtml(src_root, outstudies_path, study, True)
+    # Option when index has no header
+    # generateFullHtml(src_root, outstudies_path, study, study.name != "0_index")
             
 
 def generateFullHtml(src_root, outstudies_path, study, is_write_header):
