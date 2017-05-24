@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+import os
+
 def generateStudy(src_root, outstudies_path, study):
     generateFullHtml(src_root, outstudies_path, study, True)
     # Option when index has no header
@@ -6,10 +8,13 @@ def generateStudy(src_root, outstudies_path, study):
             
 
 def generateFullHtml(src_root, outstudies_path, study, is_write_header):
-	
-	header_file = open(src_root + "/header.html", "r") 
-	footer_file = open(src_root + "/footer.html", "r")
-	study_file = open(src_root + "/studies/english/" + study.name + ".html")
+	join = os.path.join
+
+	studies_folder = join(src_root, "studies")
+	header_file = open(join(studies_folder,  "header.html"), "r")
+	footer_file = open(join(studies_folder,  "footer.html"), "r")
+	study_filename = study.name + ".html"
+	study_file = open(join(studies_folder, "english", study_filename))
 
 	header = header_file.read()
 	footer = footer_file.read()
