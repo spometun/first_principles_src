@@ -31,26 +31,18 @@ def cut_front_number(filename):
     return filename.split("_", 1)[1];
 
 
-def generate_po(path_to_studies, output_folder, study_name):
-    input_file = open(path_to_studies + "/" + study_name + ".html")
-    input_text = input_file.read()
-    out_file_name = output_folder + "/" + cut_front_number(study_name) + ".pot"
-    out_file = open(out_file_name, "w")
-    writer = WriterSink(out_file)
-    parser = ParserSource(input_text)
-    po_generator = POGeneratorSinkSource(study_name + ".html")
-    parser.sink = po_generator
-    po_generator.sink = writer
-    parser.go()
-
 def generate_pot(path_to_studies, study_name):
-    input_file = open(path_to_studies + "/" + study_name + ".html")
-    input_text = input_file.read()
+    study_filename = study_name + '.html'
+    with open(path_to_studies + "/" + study_filename) as input_file:
+        input_text = input_file.read()
     parser = ParserSource(input_text)
-    po_generator = POGeneratorSink(study_name + ".html")
-    parser.sink = po_generator
+    dispatcher = DispatcherSinkSource()
+    parser.sink = dispatcher
+    dispatcher.processor = POEntryGeneratorSink(study_filename)
+    poFileGenerator = POFileGeneratorSink()
+    dispatcher.sink = poFileGenerator
     parser.go()
-    return po_generator.pot
+    return poFileGenerator.pot
 
 
 
@@ -78,7 +70,7 @@ def generate_translation_templates():
         study_pot = generate_pot(path_to_studies, study.name)
         studies_pot.append((study.name, study_pot))
 
-    print("\nGENERATION TRANSLATION CATALOG")        
+    print("\nGENERATING TRANSLATION CATALOG")        
     terms = {}
     for name, study_pot in studies_pot:
         for entry in study_pot:
@@ -99,7 +91,7 @@ def generate_translation_templates():
             all_studies_file.append(entry)
         study_file.save(output_folder + '/' + name + ".pot")    
     all_studies_file.save(output_folder + '/' + FP_DOMAIN + ".pot")    
-    
+
 
 g_terms_dict = {};  
 prepare_dst_folder()
