@@ -1,35 +1,28 @@
-window.onload = () => {
+window.addEventListener('load', () => {
+
   const languageSelect = document.getElementById("language-select");
   const { pathname } = window.location;
 
-  const makePattern = (language) => `/${language}/`;
-
-  JSONS['languages'].then(languages => {
-    let curLanguage;
-    let curLanguagePattern;
-
-    languages.forEach((language, i) => {
+  withLanguages(languages => {
+    languages.forEach(language => {
       const option = document.createElement('option');
       option.innerHTML = language;
       languageSelect.appendChild(option);
-
-      const pattern = makePattern(language);
-      if (pathname.includes(pattern)) {
-        languageSelect.selectedIndex = i;
-        $('#language-select').selectmenu('refresh', true);
-        curLanguage = language;
-        curLanguagePattern = pattern;
-      }
-
     });
 
-    languageSelect.addEventListener('change', () => {
-      const { selectedIndex } = languageSelect;
-      if (!pathname.includes(languages[selectedIndex])) {
-        const newPattern = makePattern(languages[selectedIndex]);
-        window.location = pathname.replace(curLanguagePattern, newPattern);
-        console.log(window.location);
-      }
+    withCurLanguage(({ i, pattern }) => {
+      // Change selection in language-select to current language
+      languageSelect.selectedIndex = i;
+      $('#language-select').selectmenu('refresh', true);
+
+      // Add redirecting after changing language in language-select
+      languageSelect.addEventListener('change', () => {
+        const { selectedIndex } = languageSelect;
+        if (i !== selectedIndex) {
+          const newPattern = makePattern(languages[selectedIndex]);
+          window.location = pathname.replace(pattern, newPattern);
+        }
+      });
     });
   });
-};
+});
