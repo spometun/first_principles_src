@@ -1,9 +1,9 @@
 window.addEventListener('load',  () => {
-  const POEditorCommitURL = '#';
+  const updateContentURL = '/api/update-content/';
 
   withCurLanguage(({ language }) => {
     $('#refresh-button').bind('click', () => {
-      fetch(POEditorCommitURL, () => {
+      fetch(updateContentURL + language, () => {
         location.reload();
       });
     });
