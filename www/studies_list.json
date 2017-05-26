@@ -1,6 +1,7 @@
 {
 	"00_index": "First Principles",
 	"01_introduction": "Introduction",
+	"02_course_information": "Course Information",
 	"03_book_of_john": "The Book of John",
 	"04_seeking_god": "Seeking God",
 	"05_word_of_god": "The Word of God",
@@ -16,5 +17,7 @@
 	"16_after_baptism_now_what": "After Baptism, Now What?",
 	"17_christ_is_your_life": "Christ Is Your Life",
 	"18_best_friends_of_all_time": "Best Friends of All Time",
-	"20_persecution": "Persecution"
+	"19_mission": "The Mission",
+	"20_persecution": "Persecution",
+	"21_memory_scriptures": "Memory Scriptures"
 }
