@@ -65,22 +65,25 @@ class TranslatorSinkSource:
         self.nMissed = 0
         self.translation = {}
         for entry in poFile:
-            print(entry.msgid, entry.msgctxt)
             self.translation[(entry.msgid, entry.msgctxt)] = entry.msgstr
     def on_input(self, data):
+        translated_text = ''
         if(isinstance(data, str)):
             translated_text = data
         else:
-           # print(data.msgid, data.msgctxt)
             if (data.msgid, data.msgctxt) in self.translation:
                 translated_text = self.translation[(data.msgid, data.msgctxt)]                
             else:
                 if (data.msgid, None) in self.translation:
                     translated_text = self.translation[(data.msgid, None)]                
                 else:
-                    translated_text = data.msgid
-                    self.nMissed += 1               
+                    print('\n\n********************** WARNING **********************')
+                    print('couldn\'t find translation for:')
+                    print('msgid =' + data.msgid + '   [at file', data.occurrences[0][0], ' line:', data.occurrences[0][1], ']')
             self.nTerms += 1
+            if translated_text == '':
+                translated_text = data.msgid
+                self.nMissed += 1                                   
         self.sink.on_input(translated_text)
 
 

@@ -6,15 +6,6 @@ from context import *
 from libs.pipeline_classes import *
 from libs.utils import *
 
-'''
-class FallbackTranslation(gettext.NullTranslations):
-    def __init__(self):
-        super(FallbackTranslation, self).__init__()
-        self.counter = 0
-    def gettext(self, msg):
-        self.counter += 1;    
-        return msg
-'''
 
 def generate_language(language):
     print("GENERATING LANGUAGE [" + language + "]")
@@ -54,7 +45,7 @@ def generate_language(language):
             print(' ', str(nTerms - nMissed) + '/' + str(nTerms))
             nTermsTotal += nTerms
             nMissedTotal += nMissed
- #       sys.exit()
+#        sys.exit()
     print('TOTAL:', str(nTermsTotal - nMissedTotal) + '/' + str(nTermsTotal))
     print()
 
