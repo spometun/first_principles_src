@@ -1,9 +1,9 @@
 window.addEventListener('load',  () => {
-  const POEditorCommitURL = '#';
+  const updateContentURL = 'http://kievicc.org/fp/php/trigger_update_from_poeditor.php';
 
   withCurLanguage(({ language }) => {
     $('#refresh-button').bind('click', () => {
-      fetch(POEditorCommitURL, () => {
+      fetch(updateContentURL, () => {
         location.reload();
       });
     });
