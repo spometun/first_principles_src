@@ -27,8 +27,7 @@ def generate_studies_templates():
         generateStudy(src, dst, study)    
 
 
-def cut_front_number(filename):
-    return filename.split("_", 1)[1];
+
 
 
 def generate_pot(path_to_studies, study_name):
@@ -85,8 +84,8 @@ def generate_translation_templates():
         print(name)
         study_file = polib.POFile(check_for_duplicates = True, wrapwidth = 0)
         for entry in study_pot:
-            if terms[entry.msgid] >= 2:
-                entry.msgctxt = name  + '.html line:' + entry.linenum
+            if terms[entry.msgid] == 1:
+                entry.msgctxt = None
             study_file.append(entry)
             all_studies_file.append(entry)
         study_file.save(output_folder + '/' + name + ".pot")    

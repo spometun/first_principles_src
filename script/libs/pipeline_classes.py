@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import polib
+from libs.utils import *
 
 class ParserSource:
     def __init__(self, text):
@@ -21,7 +22,7 @@ class ParserSource:
 class DispatcherSinkSource:
     def __init__(self):
         self.counter = 0
-        self.line_number = 0
+        self.line_number = 1
     def on_input(self, text):
         self.line_number += text.count('\n')
         if(self.counter % 2):
@@ -47,22 +48,40 @@ class WriterSink:
 class POEntryGeneratorSink:
     def __init__(self, file_name):
         self.file_name = file_name
+        self.term_counter = {}
     def on_input(self, text, line_number):
-        self.state = polib.POEntry(msgid = text, linenum = str(line_number), occurrences = [(self.file_name, line_number)])
+        if text not in self.term_counter:
+            self.term_counter[text] = 1
+        else:
+            self.term_counter[text] += 1
+        context = cut_html_extension(cut_front_number(self.file_name))  + ' #' + str(self.term_counter[text])
+        self.state = polib.POEntry(msgid = text, linenum = str(line_number),
+         occurrences = [(self.file_name, line_number)], msgctxt = context)
 
 
 class TranslatorSinkSource:
-    def __init__(self):
-        self.counter = 0
+    def __init__(self, poFile):
+        self.nTerms = 0
+        self.nMissed = 0
+        self.translation = {}
+        for entry in poFile:
+            print(entry.msgid, entry.msgctxt)
+            self.translation[(entry.msgid, entry.msgctxt)] = entry.msgstr
     def on_input(self, data):
         if(isinstance(data, str)):
-            translated_text = text
+            translated_text = data
         else:
-            translated_text = self.language.gettext(text)
-            self.counter += 1
+           # print(data.msgid, data.msgctxt)
+            if (data.msgid, data.msgctxt) in self.translation:
+                translated_text = self.translation[(data.msgid, data.msgctxt)]                
+            else:
+                if (data.msgid, None) in self.translation:
+                    translated_text = self.translation[(data.msgid, None)]                
+                else:
+                    translated_text = data.msgid
+                    self.nMissed += 1               
+            self.nTerms += 1
         self.sink.on_input(translated_text)
-    def getNTerms(self):
-        return self.counter
 
 
 class POFileGeneratorSink:

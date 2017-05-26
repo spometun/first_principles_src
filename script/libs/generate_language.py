@@ -6,6 +6,7 @@ from context import *
 from libs.pipeline_classes import *
 from libs.utils import *
 
+'''
 class FallbackTranslation(gettext.NullTranslations):
     def __init__(self):
         super(FallbackTranslation, self).__init__()
@@ -13,19 +14,21 @@ class FallbackTranslation(gettext.NullTranslations):
     def gettext(self, msg):
         self.counter += 1;    
         return msg
+'''
 
 def generate_language(language):
     print("GENERATING LANGUAGE [" + language + "]")
     src_studies = ROOT + TEMPLATE + WWW + STUDIES + ENGLISH
     dst_studies = ROOT + WWW + STUDIES
 
-    po = polib.pofile(ROOT + LANG + "/" + language + "/LC_MESSAGES/" + FP_DOMAIN + ".po")
-    po.save_as_mofile(ROOT + LANG + "/" + language + "/LC_MESSAGES/" + FP_DOMAIN + ".mo")
+    poFile = polib.pofile(ROOT + LANG + "/" + language + "/LC_MESSAGES/" + FP_DOMAIN + ".po")
+    poFile.save_as_mofile(ROOT + LANG + "/" + language + "/LC_MESSAGES/" + FP_DOMAIN + ".mo")
+    translator = TranslatorSinkSource(poFile)
 
     #gettext.find(FP_DOMAIN, ROOT + LANG, language)
-    translation = gettext.translation(FP_DOMAIN, localedir = ROOT + LANG, languages = [language])
-    missed = FallbackTranslation()
-    translation.add_fallback(missed)
+    #translation = gettext.translation(FP_DOMAIN, localedir = ROOT + LANG, languages = [language])
+    #missed = FallbackTranslation()
+    #translation.add_fallback(missed)
     recreate_dir(dst_studies + "/" + language)
     nMissedTotal = 0
     nTermsTotal = 0
@@ -39,20 +42,19 @@ def generate_language(language):
             dispatcher = DispatcherSinkSource()
             parser.sink = dispatcher
             dispatcher.processor = POEntryGeneratorSink(study_filename)
-            translator = TranslatorSinkSource()
-            translator.language = translation
             dispatcher.sink = translator
             writer = WriterSink(out_file)
             translator.sink = writer
-            missed.counter = 0
+            translator.nMissed = 0
+            translator.nTerms = 0
             parser.go()
             
-            nTerms = translator.getNTerms()
-            nMissed = missed.counter
+            nTerms = translator.nTerms
+            nMissed = translator.nMissed
             print(' ', str(nTerms - nMissed) + '/' + str(nTerms))
             nTermsTotal += nTerms
             nMissedTotal += nMissed
-        sys.exit()
+ #       sys.exit()
     print('TOTAL:', str(nTermsTotal - nMissedTotal) + '/' + str(nTermsTotal))
     print()
 
