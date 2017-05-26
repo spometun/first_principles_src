@@ -55,8 +55,6 @@ def post_process_po(output_folder, study_name):
         else:
             g_terms_dict[entry.msgid].append(study_name)
 
- #   po.save(out_file_name + "2")
-
 
 def generate_translation_templates():
     path_to_studies = ROOT + TEMPLATE + WWW + STUDIES + ENGLISH
@@ -72,22 +70,29 @@ def generate_translation_templates():
     print("\nGENERATING TRANSLATION CATALOG")        
     terms = {}
     for name, study_pot in studies_pot:
+        value = 1
+        if cut_front_number(name) == 'index':
+            value = -1000  # reuse translation of any term from index.html
         for entry in study_pot:
             term = entry.msgid
             if term not in terms:
-                terms[term] = 1
+                terms[term] = value
             else:
-                terms[term] += 1
+                terms[term] += value
                 
-    all_studies_file = polib.POFile(check_for_duplicates = True, wrapwidth = 0)   
+    all_studies_file = polib.POFile(check_for_duplicates = True, wrapwidth = 0)
+    added_entries = {}  # to add repeated terms only once
     for name, study_pot in studies_pot:
         print(name)
         study_file = polib.POFile(check_for_duplicates = True, wrapwidth = 0)
         for entry in study_pot:
-            if terms[entry.msgid] == 1:
+            if terms[entry.msgid] <= 1:
                 entry.msgctxt = None
-            study_file.append(entry)
-            all_studies_file.append(entry)
+            if (entry.msgid, entry.msgctxt) not in added_entries:
+                study_file.append(entry)
+                all_studies_file.append(entry)
+                added_entries[(entry.msgid, entry.msgctxt)] = True
+            
         study_file.save(output_folder + '/' + name + ".pot")    
     all_studies_file.save(output_folder + '/' + FP_DOMAIN + ".pot")    
 
