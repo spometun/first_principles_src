@@ -15,3 +15,9 @@ def copy_fixed_stuff(src_path, dst_path):
 
     shutil.copy(src_path + "/languages.json", dst_path + "/languages.json")
     shutil.copy(src_path + "/style.css", dst_path + "/style.css")
+    
+def cut_front_number(filename):
+    return filename.split("_", 1)[1];
+    
+def cut_html_extension(filename):
+    return filename[:-5];
