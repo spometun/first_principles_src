@@ -80,7 +80,7 @@ class TranslatorSinkSource:
                 else:
                     print('\n\n********************** WARNING **********************')
                     print('couldn\'t find translation for:')
-                    message = 'msgid = {}  [at file {} line: {}]'.format(data.msgid, data.occurrences[0][0], data.occurrences[0][1])
+                    message = '{}  [{}:{}]'.format(data.msgid, data.occurrences[0][0], data.occurrences[0][1])
                     sys.stdout.buffer.write(message.encode('utf8'))
             self.nTerms += 1
             if translated_text == '':
