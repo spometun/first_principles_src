@@ -4,15 +4,17 @@ import sys
 from libs.utils import *
 
 class ParserSource:
-    def __init__(self, text):
+    def __init__(self, text, tag_open, tag_close):
         self.text = text
+        self.tag_open = tag_open
+        self.tag_close = tag_close
     def output(self, text):
         self.sink.on_input(text)
     def go(self):
-        level1 = self.text.split('_("')
+        level1 = self.text.split(self.tag_open)
         self.output(level1.pop(0))
         for pair in level1:
-            terms = pair.split('")')
+            terms = pair.split(self.tag_close)
             if(len(terms) != 2) :
                 error_msg = "parsing error near\n " + pair + "\nlen(terms)= " + str(len(terms))
                 raise RuntimeError(error_msg)
@@ -35,7 +37,9 @@ class DispatcherSinkSource:
         self.counter += 1
     
 
-
+class NullSink:
+    def on_input(self, text):
+        return
 
 class WriterSink:
     def __init__(self, file):

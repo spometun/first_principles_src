@@ -7,7 +7,6 @@ from libs.utils import *
 from libs.generate_html_template import *
 from libs.pipeline_classes import *
 
-ENCODING = "UTF-8"
 
 def prepare_dst_folder():
     dst_path = ROOT + TEMPLATE
@@ -30,12 +29,11 @@ def generate_studies_templates():
 
 
 
-
 def generate_pot(path_to_studies, study_name):
     study_filename = os.path.join(path_to_studies, study_name + '.html')
     with open(study_filename, encoding=ENCODING) as input_file:
         input_text = input_file.read()
-    parser = ParserSource(input_text)
+    parser = ParserSource(input_text, '_("', '")')
     dispatcher = DispatcherSinkSource()
     parser.sink = dispatcher
     dispatcher.processor = POEntryGeneratorSink(study_filename)
@@ -82,18 +80,20 @@ def generate_translation_templates():
                 terms[term] += value
                 
     all_studies_file = polib.POFile(check_for_duplicates = True, wrapwidth = 0)
-    added_entries = {}  # to add repeated terms only once
+    all_added_entries = {}  # to add repeated terms only once
     for name, study_pot in studies_pot:
         print(name)
         study_file = polib.POFile(check_for_duplicates = True, wrapwidth = 0)
+        study_added_entries = {}  # to add repeated terms only once
         for entry in study_pot:
             if terms[entry.msgid] <= 1:
                 entry.msgctxt = None
-            if (entry.msgid, entry.msgctxt) not in added_entries:
+            if (entry.msgid, entry.msgctxt) not in study_added_entries:
                 study_file.append(entry)
+                study_added_entries[(entry.msgid, entry.msgctxt)] = True
+            if (entry.msgid, entry.msgctxt) not in all_added_entries:
                 all_studies_file.append(entry)
-                added_entries[(entry.msgid, entry.msgctxt)] = True
-            
+                all_added_entries[(entry.msgid, entry.msgctxt)] = True
         study_file.save(output_folder + '/' + name + ".pot")    
     all_studies_file.save(output_folder + '/' + FP_DOMAIN + ".pot")    
 

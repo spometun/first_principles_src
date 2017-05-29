@@ -14,7 +14,7 @@ def generate_language(language):
     dst_studies = ROOT + WWW + STUDIES
 
     poFile = polib.pofile(ROOT + LANG + "/" + language + "/LC_MESSAGES/" + FP_DOMAIN + ".po")
-    poFile.save_as_mofile(ROOT + LANG + "/" + language + "/LC_MESSAGES/" + FP_DOMAIN + ".mo")
+#    poFile.save_as_mofile(ROOT + LANG + "/" + language + "/LC_MESSAGES/" + FP_DOMAIN + ".mo")
     translator = TranslatorSinkSource(poFile)
 
     #gettext.find(FP_DOMAIN, ROOT + LANG, language)
@@ -29,7 +29,7 @@ def generate_language(language):
         study_filename = study.name + '.html'
         with open(src_studies + "/" + study_filename, encoding=ENCODING) as input_file:
             text = input_file.read()
-        parser = ParserSource(text)
+        parser = ParserSource(text, '_("', '")')
         with open(dst_studies + "/" + language + "/" + study.name + ".html", "w", encoding=ENCODING) as out_file:
             dispatcher = DispatcherSinkSource()
             parser.sink = dispatcher

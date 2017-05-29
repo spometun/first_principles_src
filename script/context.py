@@ -11,6 +11,7 @@ ENGLISH = "/english"
 TEMPLATE = "/template"
 ENGLISH_TEMPLATE = "/english_template"
 FP_DOMAIN = "first_principles"
+ENCODING = "UTF-8"
 
 STUDY_LIST = []
 Study = namedtuple("Study", "name title")
