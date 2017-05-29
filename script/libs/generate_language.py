@@ -6,6 +6,7 @@ from context import *
 from libs.pipeline_classes import *
 from libs.utils import *
 
+ENCODING = "UTF-8"
 
 def generate_language(language):
     print("GENERATING LANGUAGE [" + language + "]")
@@ -26,10 +27,10 @@ def generate_language(language):
     for study in STUDY_LIST:
         print(study.name, end = '')
         study_filename = study.name + '.html'
-        with open(src_studies + "/" + study_filename) as input_file:
+        with open(src_studies + "/" + study_filename, encoding=ENCODING) as input_file:
             text = input_file.read()
         parser = ParserSource(text)
-        with open(dst_studies + "/" + language + "/" + study.name + ".html", "w") as out_file:
+        with open(dst_studies + "/" + language + "/" + study.name + ".html", "w", encoding=ENCODING) as out_file:
             dispatcher = DispatcherSinkSource()
             parser.sink = dispatcher
             dispatcher.processor = POEntryGeneratorSink(study_filename)

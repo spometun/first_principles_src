@@ -7,6 +7,7 @@ from libs.utils import *
 from libs.generate_html_template import *
 from libs.pipeline_classes import *
 
+ENCODING = "UTF-8"
 
 def prepare_dst_folder():
     dst_path = ROOT + TEMPLATE
@@ -31,8 +32,8 @@ def generate_studies_templates():
 
 
 def generate_pot(path_to_studies, study_name):
-    study_filename = study_name + '.html'
-    with open(path_to_studies + "/" + study_filename) as input_file:
+    study_filename = os.path.join(path_to_studies, study_name + '.html')
+    with open(study_filename, encoding=ENCODING) as input_file:
         input_text = input_file.read()
     parser = ParserSource(input_text)
     dispatcher = DispatcherSinkSource()
