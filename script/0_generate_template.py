@@ -9,7 +9,10 @@ from libs.generate_html_template import *
 from libs.pipeline_classes import *
 
 ENCODING = "UTF-8"
-DST_FOLDER = sys.argv[1] if len(sys.argv) > 1 else ROOT
+if len(sys.argv) != 2:
+    print('Usage: {} <destination_path>'.format(sys.argv[0]))
+    sys.exit()
+DST_FOLDER = sys.argv[1]
 
 def prepare_dst_folder():
     dst_path = DST_FOLDER + TEMPLATE
