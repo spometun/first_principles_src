@@ -13,7 +13,6 @@ def copy_fixed_stuff(src_path, dst_path):
     shutil.copytree(src_path + "/images", dst_path + "/images")
     shutil.copytree(src_path + "/js", dst_path + "/js")
 
-    shutil.copy(src_path + "/languages.json", dst_path + "/languages.json")
     shutil.copy(src_path + "/style.css", dst_path + "/style.css")
     
 def cut_front_number(filename):
