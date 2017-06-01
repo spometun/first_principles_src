@@ -2,14 +2,17 @@
 import os
 import shutil
 import polib
+import sys
 from context import *
 from libs.utils import *
 from libs.generate_html_template import *
 from libs.pipeline_classes import *
 
+ENCODING = "UTF-8"
+DST_FOLDER = sys.argv[1] if len(sys.argv) > 1 else ROOT
 
 def prepare_dst_folder():
-    dst_path = ROOT + TEMPLATE
+    dst_path = DST_FOLDER + TEMPLATE
     recreate_dir(dst_path)
     recreate_dir(dst_path + WWW)
     copy_fixed_stuff(ROOT + SRC + WWW, dst_path + WWW)
@@ -21,7 +24,7 @@ def prepare_dst_folder():
 def generate_studies_templates():
     print("GENERATING STUDIES TEMPLATES")
     src = ROOT + SRC + WWW
-    dst = ROOT + TEMPLATE + WWW + STUDIES + ENGLISH
+    dst = DST_FOLDER + TEMPLATE + WWW + STUDIES + ENGLISH
     for study in STUDY_LIST:
         print(study.name)
         generateStudy(src, dst, study)    
@@ -57,7 +60,7 @@ def post_process_po(output_folder, study_name):
 
 def generate_translation_templates():
     path_to_studies = ROOT + TEMPLATE + WWW + STUDIES + ENGLISH
-    output_folder =  ROOT + TEMPLATE + LANG + ENGLISH_TEMPLATE
+    output_folder =  DST_FOLDER + TEMPLATE + LANG + ENGLISH_TEMPLATE
     studies_pot = []
 
     print("\nPARSING TRANSLATION TEMPLATES")
