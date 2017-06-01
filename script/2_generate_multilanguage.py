@@ -7,11 +7,11 @@ from libs.generate_language import *
 
 DST_FOLDER = sys.argv[1] if len(sys.argv) > 1 else ROOT
 
-recreate_dir(ROOT + WWW);
-copy_fixed_stuff(DST_FOLDER + TEMPLATE + WWW, ROOT + WWW)
-os.mkdir(ROOT + WWW + STUDIES)
+recreate_dir(DST_FOLDER + WWW);
+copy_fixed_stuff(DST_FOLDER + TEMPLATE + WWW, DST_FOLDER + WWW)
+os.mkdir(DST_FOLDER + WWW + STUDIES)
 
-generate_language("en")
-generate_language("ru")
-generate_language("uk")
-generate_language("sv")
+generate_language("en", DST_FOLDER)
+generate_language("ru", DST_FOLDER)
+generate_language("uk", DST_FOLDER)
+generate_language("sv", DST_FOLDER)

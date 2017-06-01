@@ -8,10 +8,10 @@ from libs.utils import *
 
 ENCODING = "UTF-8"
 
-def generate_language(language):
+def generate_language(language, dst_folder):
     print("GENERATING LANGUAGE [" + language + "]")
-    src_studies = ROOT + TEMPLATE + WWW + STUDIES + ENGLISH
-    dst_studies = ROOT + WWW + STUDIES
+    src_studies = dst_folder + TEMPLATE + WWW + STUDIES + ENGLISH
+    dst_studies = dst_folder + WWW + STUDIES
 
     poFile = polib.pofile(ROOT + LANG + "/" + language + "/LC_MESSAGES/" + FP_DOMAIN + ".po")
 #    poFile.save_as_mofile(ROOT + LANG + "/" + language + "/LC_MESSAGES/" + FP_DOMAIN + ".mo")

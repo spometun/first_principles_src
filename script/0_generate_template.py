@@ -59,7 +59,7 @@ def post_process_po(output_folder, study_name):
 
 
 def generate_translation_templates():
-    path_to_studies = ROOT + TEMPLATE + WWW + STUDIES + ENGLISH
+    path_to_studies = DST_FOLDER + TEMPLATE + WWW + STUDIES + ENGLISH
     output_folder =  DST_FOLDER + TEMPLATE + LANG + ENGLISH_TEMPLATE
     studies_pot = []
 
