@@ -1,5 +1,5 @@
 window.addEventListener('load',  () => {
-  const updateContentURL = 'http://kievicc.org/fp/php/trigger_update_from_poeditor.php';
+  const updateContentURL = '../../../api/trigger_update_from_poeditor.php';
 
   withCurLanguage(({ language }) => {
     $('#refresh-button').bind('click', () => {
