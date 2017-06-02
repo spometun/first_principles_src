@@ -5,4 +5,5 @@ if [ "$#" != 1 ]; then
 fi
 mkdir -p $1/api/
 cp -r ../server/*.php $1/api/
+pwd > $1/api/src_path.txt
 cp ../server/index.html $1/

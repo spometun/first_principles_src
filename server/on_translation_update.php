@@ -5,7 +5,8 @@
 <?php
 echo "Hello God! Updated";
 $output = shell_exec('date | cat >> updates.txt');
-`cd ~/first_principles/lang; git pull; cd ../src/script; sh run_all.sh`;
+$src_path = file_get_contents('src_path.txt');
+`cd {$src_path}; cd ../../lang; git pull; cd ../src/script; ./2_generate_translations.py`;
 ?>
 
 </body>
