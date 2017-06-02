@@ -3,6 +3,6 @@ if [ "$#" != 1 ]; then
   echo "Usage: $0 <destination_path>"
   exit 1
 fi
-./build.sh $1
-./2_generate_translations.py $1
-./copy_server.sh $1
+mkdir -p $1/api/
+cp -r ../server/*.php $1/api/
+cp ../server/index.html $1/
