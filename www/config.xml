@@ -1,0 +1,48 @@
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="org.usd21.first_principles" version="1.0.0">
+ 
+<name>First Principles</name>
+
+	<description>
+	The elementary teachings, according to the scriptures of the Bible, about what it means to be a Christian.
+	</description>
+
+	<author href="http://fp.usd21.org" email="firstprinciples@usd21.org">
+	Kip McKean
+	</author>
+ 
+  <content src="index.html"/>
+
+ <icon src="images/mobile/icon.png" />
+	
+ 
+
+ <preference name="permissions" value="none"/>
+  <preference name="orientation" value="auto"/>
+  <preference name="target-device" value="universal"/>
+  <preference name="fullscreen" value="true"/>
+  <preference name="webviewbounce" value="true"/>
+  <preference name="prerendered-icon" value="true"/>
+  <preference name="stay-in-webview" value="false"/>
+  <preference name="ios-statusbarstyle" value="black-opaque"/>
+  <preference name="detect-data-types" value="true"/>
+  <preference name="exit-on-suspend" value="false"/>
+  <preference name="show-splash-screen-spinner" value="true"/>
+  <preference name="auto-hide-splash-screen" value="true"/>
+  <preference name="disable-cursor" value="false"/>
+  <preference name="android-minSdkVersion" value="14"/>
+  <preference name="android-installLocation" value="auto"/>
+  
+  
+  
+  <access origin="*"/>
+  <plugin name="cordova-plugin-whitelist" version="1"/>
+ <!-- <allow-intent href="http://*/*"/> -->
+ 
+  <platform name="android">
+    <allow-intent href="market:*"/>
+  </platform>
+  <platform name="ios">
+    <allow-intent href="itms:*"/>
+    <allow-intent href="itms-apps:*"/>
+  </platform>
+</widget>
