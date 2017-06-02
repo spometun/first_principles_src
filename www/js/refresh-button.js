@@ -1,5 +1,5 @@
 window.addEventListener('load',  () => {
-  const updateContentURL = '../../../api/trigger_update_from_poeditor.php';
+  const updateContentURL = '../../../api/update_translations.php';
 
   withCurLanguage(({ language }) => {
     $('#refresh-button').bind('click', () => {
