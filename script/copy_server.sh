@@ -4,7 +4,7 @@ if [ "$#" != 1 ]; then
   exit 1
 fi
 mkdir -p $1/api/
-chmod 755 $1/api/
+chmod -R 755 $1/api/
 cp -r ../server/*.php $1/api/
 pwd > $1/api/src_path.txt
 cp ../server/index.html $1/
