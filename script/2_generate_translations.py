@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 from context import *
+import datetime
 import shutil
 import sys
 from libs.utils import *
@@ -20,3 +21,8 @@ generate_language("en", DST_FOLDER)
 generate_language("ru", DST_FOLDER)
 generate_language("uk", DST_FOLDER)
 generate_language("sv", DST_FOLDER)
+
+
+with open('logs.txt', 'a') as f:
+    datetime_str = datetime.datetime.now().strftime('%Y-%m-%d|%H:%M:%S: ')
+    f.write(datetime_str + 'Translations generations\n');
