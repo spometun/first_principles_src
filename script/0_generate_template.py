@@ -11,7 +11,7 @@ from libs.pipeline_classes import *
 
 ENCODING = "UTF-8"
 if len(sys.argv) != 3 or (sys.argv[2] != "mobile" and sys.argv[2] != "web"):
-    print('Usage: {} <destination_path> mobile/web'.format(sys.argv[0]))
+    print('Usage: {} <destination_path> {mobile|web}'.format(sys.argv[0]))
     sys.exit()
 DST_FOLDER = sys.argv[1]
 IS_BUILD_MOBILE = sys.argv[2] == 'mobile'

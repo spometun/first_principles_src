@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 if [ "$#" != 2 ] || ([ "$2" != web ] && [ "$2" != mobile ]); then
-  echo "Usage: $0 <destination_path> mobile/web"
+  echo "Usage: $0 <destination_path> {mobile|web}"
   exit 1
 fi
 if [ ! -d $1 ]; then
