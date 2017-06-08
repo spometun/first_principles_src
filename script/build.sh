@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
-if [ "$#" -lt 1 ] || [ "$#" -gt 2 ] ; then
-  echo "Usage: $0 <destination_path> [--mobile]"
+if [ "$#" != 2 ] || ([ "$2" != web ] && [ "$2" != mobile ]); then
+  echo "Usage: $0 <destination_path> mobile/web"
   exit 1
 fi
 ./0_generate_template.py $1 $2
