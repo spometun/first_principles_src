@@ -8,6 +8,7 @@ window.addEventListener('load', () => {
     const link = document.createElement('a');
     const newPattern = makePattern(language);
     link.href = pathname.replace(pattern, newPattern);
+    link.rel = 'external'
 
     const img = document.createElement('img');
     img.alt = language;
