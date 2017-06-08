@@ -46,7 +46,7 @@ def generate_pot(path_to_studies, study_name):
     parser = ParserSource(input_text, '_("', '")')
     dispatcher = DispatcherSinkSource()
     parser.sink = dispatcher
-    dispatcher.processor = POEntryGeneratorSink(study_filename)
+    dispatcher.processor = POEntryGeneratorSink(study_name + '.html')
     poFileGenerator = POFileGeneratorSink()
     dispatcher.sink = poFileGenerator
     parser.go()
