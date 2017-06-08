@@ -22,6 +22,10 @@ def prepare_dst_folder():
     recreate_dir(dst_path + WWW)
     copy_fixed_stuff(ROOT + SRC + WWW, dst_path + WWW)
     shutil.copy(ROOT + LANGUAGES_FILE, dst_path + WWW)
+    with open(dst_path + WWW + LANGUAGES_JS, 'w') as ofile:
+        ofile.write("LANGUAGES = ");
+        with open(ROOT + LANGUAGES_FILE) as ifile:
+            ofile.write(ifile.read())
     os.mkdir(dst_path + WWW + STUDIES)
     os.mkdir(dst_path + WWW + STUDIES + ENGLISH)
     os.mkdir(dst_path + LANG)

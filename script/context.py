@@ -13,6 +13,8 @@ ENGLISH_TEMPLATE = "/english_template"
 FP_DOMAIN = "first_principles"
 ENCODING = "UTF-8"
 LANGUAGES_FILE = "/languages.cfg"
+LANGUAGES_JS = "/languages.js"
+JS = "/js"
 STUDIES_FILE = "/studies_list.json"
 
 STUDY_LIST = []
