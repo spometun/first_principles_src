@@ -15,7 +15,7 @@ DEPLOYMENT_FOLDER = sys.argv[1]
 
 recreate_dir(DEPLOYMENT_FOLDER + WWW);
 copy_fixed_stuff(DEPLOYMENT_FOLDER + TEMPLATE + WWW, DEPLOYMENT_FOLDER + WWW)
-shutil.copy(DEPLOYMENT_FOLDER + TEMPLATE + WWW + "/languages.json", DEPLOYMENT_FOLDER + WWW)
+shutil.copy(DEPLOYMENT_FOLDER + TEMPLATE + WWW + "/languages.js", DEPLOYMENT_FOLDER + WWW + "/js")
 os.mkdir(DEPLOYMENT_FOLDER + WWW + STUDIES)
 
 generate_language("en", DEPLOYMENT_FOLDER)

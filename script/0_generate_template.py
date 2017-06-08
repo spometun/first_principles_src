@@ -21,7 +21,10 @@ def prepare_dst_folder():
     recreate_dir(dst_path)
     recreate_dir(dst_path + WWW)
     copy_fixed_stuff(ROOT + SRC + WWW, dst_path + WWW)
-    shutil.copy(ROOT + LANG + '/languages.json', dst_path + WWW)
+    with open(dst_path + WWW + '/languages.js', 'w') as ofile:
+        ofile.write("LANGUAGES = ");
+        with open(ROOT + LANG + '/languages.json') as ifile:
+            ofile.write(ifile.read())
     print(ROOT + LANG + '/languages.json', dst_path + WWW)
     os.mkdir(dst_path + WWW + STUDIES)
     os.mkdir(dst_path + WWW + STUDIES + ENGLISH)

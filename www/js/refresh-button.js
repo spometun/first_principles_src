@@ -3,11 +3,10 @@ window.addEventListener('load',  () => {
 
   $(document).ready(() => $('#refresh-button').closest('.ui-btn').show());
 
-  withCurLanguage(({ language }) => {
-    $('#refresh-button').bind('click', () => {
-      fetch(updateContentURL, () => {
-        location.reload();
-      });
+  const { language } = CUR_LANGUAGE;
+  $('#refresh-button').bind('click', () => {
+    fetch(updateContentURL, () => {
+      location.reload();
     });
   });
 });
