@@ -10,10 +10,11 @@ from libs.generate_html_template import *
 from libs.pipeline_classes import *
 
 ENCODING = "UTF-8"
-if len(sys.argv) != 2:
-    print('Usage: {} <destination_path>'.format(sys.argv[0]))
+if len(sys.argv) != 3 or (sys.argv[2] != "mobile" and sys.argv[2] != "web"):
+    print('Usage: {} <destination_path> mobile/web'.format(sys.argv[0]))
     sys.exit()
 DST_FOLDER = sys.argv[1]
+IS_BUILD_MOBILE = sys.argv[2] == 'mobile'
 
 def prepare_dst_folder():
     dst_path = DST_FOLDER + TEMPLATE
@@ -33,7 +34,7 @@ def generate_studies_templates():
     dst = DST_FOLDER + TEMPLATE + WWW + STUDIES + ENGLISH
     for study in STUDY_LIST:
         print(study.name)
-        generateStudy(src, dst, study)    
+        generateStudy(src, dst, study, IS_BUILD_MOBILE)    
 
 
 
