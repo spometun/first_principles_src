@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
+import errno
 import sys
 import gettext
 import polib
+import shutil
 from context import *
 from libs.pipeline_classes import *
 from libs.utils import *
@@ -12,6 +14,15 @@ def generate_language(language, dst_folder):
     print("GENERATING LANGUAGE [" + language + "]")
     src_studies = dst_folder + TEMPLATE + WWW + STUDIES + ENGLISH
     dst_studies = dst_folder + WWW + STUDIES
+
+    flag_img_folder = dst_folder + WWW + "/images/flags"
+    try:
+        os.mkdir(flag_img_folder);
+    except OSError as err:
+        if err.errno != errno.EEXIST:
+            raise
+        pass
+    shutil.copy(ROOT + LANG + "/" + language + "/flag.png", flag_img_folder + "/" + language + ".png");
 
     poFile = polib.pofile(ROOT + LANG + "/" + language + "/LC_MESSAGES/" + FP_DOMAIN + ".po")
     translator = TranslatorSinkSource(poFile)
