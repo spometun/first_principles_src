@@ -15,13 +15,11 @@ DEPLOYMENT_FOLDER = sys.argv[1]
 
 recreate_dir(DEPLOYMENT_FOLDER + WWW);
 copy_fixed_stuff(DEPLOYMENT_FOLDER + TEMPLATE + WWW, DEPLOYMENT_FOLDER + WWW)
-shutil.copy(DEPLOYMENT_FOLDER + TEMPLATE + WWW + "/languages.json", DEPLOYMENT_FOLDER + WWW)
+shutil.copy(DEPLOYMENT_FOLDER + TEMPLATE + WWW + LANGUAGES_FILE, DEPLOYMENT_FOLDER + WWW)
 os.mkdir(DEPLOYMENT_FOLDER + WWW + STUDIES)
 
-generate_language("en", DEPLOYMENT_FOLDER)
-generate_language("ru", DEPLOYMENT_FOLDER)
-generate_language("uk", DEPLOYMENT_FOLDER)
-generate_language("sv", DEPLOYMENT_FOLDER)
+for lang in LANGUAGES_LIST:
+    generate_language(lang, DEPLOYMENT_FOLDER)
 
 
 with open('logs.txt', 'a') as f:
