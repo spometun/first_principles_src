@@ -4,9 +4,12 @@ window.addEventListener('load',  () => {
   $(document).ready(() => $('#refresh-button').closest('.ui-btn').show());
 
   const { language } = CUR_LANGUAGE;
-  $('#refresh-button').bind('click', () => {
-    fetch(updateContentURL, () => {
-      location.reload();
-    });
+  const refreshButton = $('#refresh-button');
+  refreshButton.bind('click', () => {
+    fetch(updateContentURL).then(response =>
+      response.blob().then(() => location.reload())
+    );
+    refreshButton.siblings('.ui-btn-inner')
+      .find('.ui-btn-text').text("Refreshing...");
   });
 });
