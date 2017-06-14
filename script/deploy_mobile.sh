@@ -1,7 +1,10 @@
 #!/usr/bin/env sh
+if [ "$#" != 0 ]; then
+  echo "Usage: $0"
+  exit 1
+fi
 
 DST=../../mobile
-
-./build.sh $DST mobile
-./2_generate_translations.py $DST
+./0_generate_templates.py $DST mobile
+./1_generate_translations.py $DST
 rm -r $DST/template

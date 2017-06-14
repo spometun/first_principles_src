@@ -86,6 +86,7 @@ class TranslatorSinkSource:
                     print('couldn\'t find translation for:')
                     message = '{}  [{}:{}]'.format(data.msgid, data.occurrences[0][0], data.occurrences[0][1])
                     sys.stdout.buffer.write(message.encode('utf8'))
+                    translated_text = '_("' + data.msgid + '")'
             self.nTerms += 1
             if translated_text == '':
                 translated_text = data.msgid

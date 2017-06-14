@@ -12,7 +12,7 @@ ENCODING = "UTF-8"
 
 def generate_language(language, dst_folder):
     print("GENERATING LANGUAGE [" + language + "]")
-    src_studies = dst_folder + TEMPLATE + WWW + STUDIES + ENGLISH
+    src_studies = dst_folder + TEMPLATE + WWW + STUDIES + ENGLISH_TEMPLATE
     dst_studies = dst_folder + WWW + STUDIES
 
     flag_img_folder = dst_folder + WWW + "/images/flags"

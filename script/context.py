@@ -5,16 +5,17 @@ from collections import namedtuple
 ROOT = "../.."
 WWW = "/www"  # do not change, used by cordova (?)
 LANG = "/lang"  # do not change, used by gettext
+API = "/api"
 SRC = "/src"
 STUDIES = "/studies"
-ENGLISH = "/english"
-TEMPLATE = "/template"
 ENGLISH_TEMPLATE = "/english_template"
+TEMPLATE = "/template"
 FP_DOMAIN = "first_principles"
 ENCODING = "UTF-8"
 LANGUAGES_FILE = "/languages.cfg"
 LANGUAGES_JS = "/languages.js"
 JS = "/js"
+EN = "/en"
 STUDIES_FILE = "/studies_list.json"
 
 STUDY_LIST = []

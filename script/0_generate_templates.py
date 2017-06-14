@@ -15,31 +15,41 @@ if len(sys.argv) != 3 or (sys.argv[2] != "mobile" and sys.argv[2] != "web"):
     sys.exit()
 DST_FOLDER = sys.argv[1]
 IS_BUILD_MOBILE = sys.argv[2] == 'mobile'
+if not os.path.isdir(DST_FOLDER):
+    print('destination directory not found: ' + DST_FOLDER)
+    sys.exit()
+    
 
 def prepare_dst_folder():
     dst_path = DST_FOLDER + TEMPLATE
+    src_path = ROOT + SRC
     recreate_dir(dst_path)
-    recreate_dir(dst_path + WWW)
-    copy_fixed_stuff(ROOT + SRC + WWW, dst_path + WWW)
+    
+    
+    shutil.copytree(src_path + WWW, dst_path + WWW)
+    recreate_dir(dst_path + WWW + STUDIES)
+    os.mkdir(dst_path + WWW + STUDIES + ENGLISH_TEMPLATE)
+    os.remove(dst_path + WWW + STUDIES_FILE)
+    
     shutil.copy(ROOT + LANGUAGES_FILE, dst_path + WWW)
-    with open(dst_path + WWW + LANGUAGES_JS, 'w') as ofile:
+    with open(dst_path + WWW + JS + LANGUAGES_JS, 'w') as ofile:
         ofile.write("LANGUAGES = ");
         with open(ROOT + LANGUAGES_FILE) as ifile:
             ofile.write(ifile.read())
-    os.mkdir(dst_path + WWW + STUDIES)
-    os.mkdir(dst_path + WWW + STUDIES + ENGLISH)
-    os.mkdir(dst_path + LANG)
-    os.mkdir(dst_path + LANG + ENGLISH_TEMPLATE)
+    if not IS_BUILD_MOBILE:
+        os.system('mkdir -m 755 ' + dst_path + '/api')
+        os.system('cp -r ../server/*.php ' + dst_path + '/api')
+        os.system('pwd > ' + dst_path + '/api/src_path.txt')
+        os.system('cp ../server/index.html ' + dst_path)
+
 
 def generate_studies_templates():
     print("GENERATING STUDIES TEMPLATES")
     src = ROOT + SRC + WWW
-    dst = DST_FOLDER + TEMPLATE + WWW + STUDIES + ENGLISH
+    dst = DST_FOLDER + TEMPLATE + WWW + STUDIES + ENGLISH_TEMPLATE
     for study in STUDY_LIST:
         print(study.name)
         generateStudy(src, dst, study, IS_BUILD_MOBILE)    
-
-
 
 
 def generate_pot(path_to_studies, study_name):
@@ -68,18 +78,16 @@ def post_process_po(output_folder, study_name):
             g_terms_dict[entry.msgid].append(study_name)
 
 
-def generate_translation_templates():
-    path_to_studies = DST_FOLDER + TEMPLATE + WWW + STUDIES + ENGLISH
-    output_folder =  DST_FOLDER + TEMPLATE + LANG + ENGLISH_TEMPLATE
+def generate_pots_and_english_po():
+    path_to_studies = DST_FOLDER + TEMPLATE + WWW + STUDIES + ENGLISH_TEMPLATE
+    output_folder =  ROOT + LANG + ENGLISH_TEMPLATE
     studies_pot = []
 
-    print("\nPARSING TRANSLATION TEMPLATES")
+    print("\nGENERATING TRANSLATION CATALOG")        
     for study in STUDY_LIST:
-        print(study.name)
         study_pot = generate_pot(path_to_studies, study.name)
         studies_pot.append((study.name, study_pot))
 
-    print("\nGENERATING TRANSLATION CATALOG")        
     terms = {}
     for name, study_pot in studies_pot:
         value = 1
@@ -108,16 +116,25 @@ def generate_translation_templates():
                 all_studies_file.append(entry)
                 all_added_entries[(entry.msgid, entry.msgctxt)] = True
         study_file.save(output_folder + '/' + name + ".pot")    
-    all_studies_file.save(output_folder + '/' + FP_DOMAIN + ".pot")    
+    all_studies_file.save(output_folder + '/' + FP_DOMAIN + ".pot")
 
+    identity_translation = polib.POFile(check_for_duplicates = True, wrapwidth = 0)
+    for entry in all_studies_file:
+        entry.msgstr = entry.msgid   
+        identity_translation.append(entry)
+    identity_translation.save(ROOT + LANG + EN + '/LC_MESSAGES/' + FP_DOMAIN + ".po")
 
 g_terms_dict = {};  
 prepare_dst_folder()
 generate_studies_templates()
-generate_translation_templates()
+generate_pots_and_english_po()
 
 
 print("\n" + str(len(STUDY_LIST)) + " studies processed")
-with open('logs.txt', 'a') as f:
-    datetime_str = datetime.datetime.now().strftime('%Y-%m-%d|%H:%M:%S: ')
-    f.write(datetime_str + 'Teplate generation\n');
+
+#with open('logs.txt', 'a') as f:
+#    datetime_str = datetime.datetime.now().strftime('%Y-%m-%d|%H:%M:%S: ')
+#    f.write(datetime_str + 'Teplate generation\n');
+    
+    
+
