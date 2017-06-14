@@ -6,7 +6,7 @@
 $SLEEP_INTERVAL = 0.5;
 
 $start_waiting_time = time();
-$LANG = $_GET['lang']
+$LANG = $_GET['lang'];
 
 echo "Hello God! lang = " + $LANG;
 file_put_contents('logs.txt', date("Y-m-d|H:i:s: ")."Triggering update from to poeditor for language " + $LANG +"\n" , FILE_APPEND);
