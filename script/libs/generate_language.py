@@ -15,15 +15,6 @@ def generate_language(language, dst_folder):
     src_studies = dst_folder + TEMPLATE + WWW + STUDIES + ENGLISH_TEMPLATE
     dst_studies = dst_folder + WWW + STUDIES
 
-    flag_img_folder = dst_folder + WWW + "/images/flags"
-    try:
-        os.mkdir(flag_img_folder);
-    except OSError as err:
-        if err.errno != errno.EEXIST:
-            raise
-        pass
-    shutil.copy(ROOT + LANG + "/" + language + "/flag.png", flag_img_folder + "/" + language + ".png");
-
     poFile = polib.pofile(ROOT + LANG + "/" + language + "/LC_MESSAGES/" + FP_DOMAIN + ".po")
     translator = TranslatorSinkSource(poFile)
 

@@ -125,11 +125,20 @@ def generate_pots_and_english_po():
         entry.msgstr = entry.msgid   
         identity_translation.append(entry)
     identity_translation.save(ROOT + LANG + EN + '/LC_MESSAGES/' + FP_DOMAIN + ".po")
+    
+    
+def write_flags():
+    flag_img_folder = DST_FOLDER + TEMPLATE + WWW + "/images/flags"
+    recreate_dir(flag_img_folder)
+    for lang in LANGUAGES_LIST:
+        shutil.copy(ROOT + LANG + "/" + lang + "/flag.png", flag_img_folder + "/" + lang + ".png");
 
-g_terms_dict = {};  
+
+g_terms_dict = {}
 prepare_dst_folder()
 generate_studies_templates()
 generate_pots_and_english_po()
+write_flags()
 
 
 print("\n" + str(len(STUDY_LIST)) + " studies processed")
