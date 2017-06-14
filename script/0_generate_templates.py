@@ -39,6 +39,7 @@ def prepare_dst_folder():
     if not IS_BUILD_MOBILE:
         os.system('mkdir -m 755 ' + dst_path + '/api')
         os.system('cp -r ../server/*.php ' + dst_path + '/api')
+        os.system('touch ' + dst_path + '/api/last_update')
         os.system('pwd > ' + dst_path + '/api/src_path.txt')
         os.system('cp ../server/index.html ' + dst_path)
 
