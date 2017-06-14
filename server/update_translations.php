@@ -8,10 +8,10 @@ $SLEEP_INTERVAL = 0.5;
 $start_waiting_time = time();
 $LANG = $_GET['lang'];
 
-echo "Hello God! lang = " + $LANG;
-file_put_contents('logs.txt', date("Y-m-d|H:i:s: ")."Triggering update from to poeditor for language " + $LANG +"\n" , FILE_APPEND);
-$ch = curl_init("https://poeditor.com/api/webhooks/github?api_token=5b0d77bc255634323a31af2df41c1388&id_project=106095&language=uk&operation=export_terms_and_translations");
-#curl_exec($ch);
+echo "Hello God!";
+file_put_contents('logs.txt', date("Y-m-d|H:i:s: ")."Triggering update from poeditor for language ".$LANG."\n" , FILE_APPEND);
+$ch = curl_init("https://poeditor.com/api/webhooks/github?api_token=5b0d77bc255634323a31af2df41c1388&id_project=106095&language=".$LANG."&operation=export_terms_and_translations");
+curl_exec($ch);
 
 $needUpdate = true;
 while ($needUpdate) {
@@ -23,7 +23,7 @@ while ($needUpdate) {
   clearstatcache();
 }
 
-file_put_contents('logs.txt', date("Y-m-d|H:i:s: ")."Update detected\n" , FILE_APPEND);
+file_put_contents('logs.txt', date("Y-m-d|H:i:s: ")."Update detected (lang = ".$LANG.")\n" , FILE_APPEND);
 ?>
 
 </body>

@@ -1,5 +1,5 @@
 window.addEventListener('load',  () => {
-  const updateContentURL = '../../../api/update_translations.php?lang=' + CUR_LANGUAGE;
+  const updateContentURL = '../../../api/update_translations.php?lang=' + CUR_LANGUAGE.language;
 
   $(document).ready(() => $('#refresh-button').closest('.ui-btn').show());
 
@@ -9,6 +9,7 @@ window.addEventListener('load',  () => {
     fetch(updateContentURL).then(response =>
       response.blob().then(() => location.reload())
     );
-    refreshButton.siblings('.ui-btn-inner').find('.ui-btn-text').text("Refreshing...");
+    refreshButton.siblings('.ui-btn-inner')
+      .find('.ui-btn-text').text("Refreshing...");
   });
 });
