@@ -9,6 +9,7 @@
 	<script type="text/javascript" src="../../js/utils.js"></script> 
 	<script type="text/javascript" src="../../js/language-select.js"></script> 
 	<script type="text/javascript" src="../../js/refresh-button.js"></script> 
+	<script type="text/javascript" src="../../js/set-audio-source.js"></script> 
 
   <script>
     $(document).ready(() => $('#refresh-button').closest('.ui-btn').hide());
@@ -29,6 +30,11 @@
 		<a href="./00_index.html" rel = "external" data-icon="home" data-iconpos="notext" data-direction="reverse">_("Home")</a> 
     <div id="language-select"></div>
     <button id="refresh-button">Refresh translation</button>
+		<div class="usd21audio">
+		  <audio controls="controls">
+		  	<source id = "audio_link_mp3" type="audio/mpeg"/>
+		  </audio>
+		</div>
 	</div> 
 
 
