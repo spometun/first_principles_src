@@ -25,7 +25,6 @@ def prepare_dst_folder():
     src_path = ROOT + SRC
     recreate_dir(dst_path)
     
-    
     shutil.copytree(src_path + WWW, dst_path + WWW)
     recreate_dir(dst_path + WWW + STUDIES)
     os.mkdir(dst_path + WWW + STUDIES + ENGLISH_TEMPLATE)

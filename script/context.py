@@ -4,7 +4,7 @@ from collections import namedtuple
 
 ROOT = "../.."
 WWW = "/www"  # do not change, used by cordova (?)
-LANG = "/lang"  # do not change, used by gettext
+LANG = "/lang"  # do not change, used by gettext (?)
 API = "/api"
 SRC = "/src"
 STUDIES = "/studies"
@@ -17,6 +17,7 @@ LANGUAGES_JS = "/languages.js"
 JS = "/js"
 EN = "/en"
 STUDIES_FILE = "/studies_list.json"
+
 
 STUDY_LIST = []
 Study = namedtuple("Study", "name title")
