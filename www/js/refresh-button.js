@@ -1,5 +1,14 @@
 window.addEventListener('load',  () => {
+  const OK_RESPONSE = 'ok';
+  const TOO_LONG_ERROR = 'update is too long';
+  const REFRESH_BUTTON_TEXT = 'Refreshing translation';
+  const REFRESH_BUTTON_REFRESHING_TEXT = 'Refreshing...';
+
   const updateContentURL = '../../../api/update_translations.php?lang=' + CUR_LANGUAGE.language;
+
+  const changeButtonText = (button, text) => (
+    button.siblings('.ui-btn-inner').find('.ui-btn-text').text(text)
+  );
 
   $(document).ready(() => $('#refresh-button').closest('.ui-btn').show());
 
@@ -7,9 +16,19 @@ window.addEventListener('load',  () => {
   const refreshButton = $('#refresh-button');
   refreshButton.bind('click', () => {
     fetch(updateContentURL).then(response =>
-      response.blob().then(() => location.reload())
+      response.text().then(text => {
+        console.log(text);
+        switch (text) {
+          case OK_RESPONSE: {
+            location.reload();
+          } break;
+          case TOO_LONG_ERROR: {
+            changeButtonText(refreshButton, REFRESH_BUTTON_TEXT);
+            alert(text);
+          } break;
+        }
+      })
     );
-    refreshButton.siblings('.ui-btn-inner')
-      .find('.ui-btn-text').text("Refreshing...");
+    changeButtonText(refreshButton, REFRESH_BUTTON_REFRESHING_TEXT);
   });
 });
