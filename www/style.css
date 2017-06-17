@@ -133,3 +133,7 @@ div[data-role="dialog"] blockquote {
 span.jesuswords {
 	color: #cc0000;	
 }
+
+#language-select img {
+  margin: 2px;
+}
