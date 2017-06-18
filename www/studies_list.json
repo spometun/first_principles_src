@@ -1,25 +1,94 @@
 {
-	"00_index": "First Principles",
-	"01_introduction": "Introduction",
-	"02_course_information": "Course Information",
-	"03_book_of_john": "The Book of John",
-	"04_seeking_god": "Seeking God",
-	"05_word_of_god": "The Word of God",
-	"06_discipleship": "Discipleship",
-	"07_coming_of_the_kingdom": "The Coming of the Kingdom",
-	"08_light_and_darkness": "Light and Darkness",
-	"09_new_testament_conversion": "New Testament Conversion",
-	"10_cross": "The Cross",
-    "11_medical_account": "The Medical Account of the Crucifixion of Christ",
-    "12_baptism_with_the_holy_spirit": "Baptism with the Holy Spirit",
-	"13_miraculous_gifts_of_the_holy_spirit": "Miraculous Gifts of the Holy Spirit",
-	"14_church": "The Church",
-	"15_book_of_acts": "The Book of Acts",
-	"16_after_baptism_now_what": "After Baptism, Now What?",
-	"17_christ_is_your_life": "Christ Is Your Life",
-	"18_best_friends_of_all_time": "Best Friends of All Time",
-	"19_mission": "The Mission",
-	"20_persecution": "Persecution",
-	"21_memory_scriptures": "Memory Scriptures",
-	"22_contact_us": "Contact Us"
+	"00_index": {
+    "title": "First Principles",
+    "poeditor_tag": 33013
+  },
+	"01_introduction": {
+    "title": "Introduction",
+    "poeditor_tag": 33015
+  },
+	"02_course_information": {
+    "title": "Course Information",
+    "poeditor_tag": 33017
+  },
+	"03_book_of_john": {
+    "title": "The Book of John",
+    "poeditor_tag": 33241
+  },
+	"04_seeking_god": {
+    "title": "Seeking God",
+    "poeditor_tag": 33019
+  },
+	"05_word_of_god": {
+    "title": "The Word of God",
+    "poeditor_tag": 33021
+  },
+	"06_discipleship": {
+    "title": "Discipleship",
+    "poeditor_tag": 33023
+  },
+	"07_coming_of_the_kingdom": {
+    "title": "The Coming of the Kingdom",
+    "poeditor_tag": 33025
+  },
+	"08_light_and_darkness": {
+    "title": "Light and Darkness",
+    "poeditor_tag": 33027
+  },
+	"09_new_testament_conversion": {
+    "title": "New Testament Conversion",
+    "poeditor_tag": 33029
+  },
+	"10_cross": {
+    "title": "The Cross",
+    "poeditor_tag": 33031
+  },
+    "11_medical_account": {
+      "title": "The Medical Account of the Crucifixion of Christ",
+      "poeditor_tag": 33033
+    },
+    "12_baptism_with_the_holy_spirit": {
+      "title": "Baptism with the Holy Spirit",
+      "poeditor_tag": 33035
+    },
+	"13_miraculous_gifts_of_the_holy_spirit": {
+    "title": "Miraculous Gifts of the Holy Spirit",
+    "poeditor_tag": 33037
+  },
+	"14_church": {
+    "title": "The Church",
+    "poeditor_tag": 33039
+  },
+	"15_book_of_acts": {
+    "title": "The Book of Acts",
+    "poeditor_tag": 33243
+  },
+	"16_after_baptism_now_what": {
+    "title": "After Baptism, Now What?",
+    "poeditor_tag": 33041
+  },
+	"17_christ_is_your_life": {
+    "title": "Christ Is Your Life",
+    "poeditor_tag": 33043
+  },
+	"18_best_friends_of_all_time": {
+    "title": "Best Friends of All Time",
+    "poeditor_tag": 33045
+  },
+	"19_mission": {
+    "title": "The Mission",
+    "poeditor_tag": 33047
+  },
+	"20_persecution": {
+    "title": "Persecution",
+    "poeditor_tag": 33049
+  },
+	"21_memory_scriptures": {
+    "title": "Memory Scriptures",
+    "poeditor_tag": 33051
+  },
+	"22_contact_us": {
+    "title": "Contact Us",
+    "poeditor_tag": 33053
+  }
 }

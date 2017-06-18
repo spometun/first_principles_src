@@ -49,6 +49,19 @@ class WriterSink:
     def __del__(self):
         self.file.close()
 
+class SubstitutorSinkSource:
+    def __init__(self, old_sub_str, new_sub_str, expected_count):
+        self.old = old_sub_str
+        self.new = new_sub_str
+        self.expected_count = expected_count
+        self.nSubstituted = 0
+    def on_input(self, text):
+        new_text = text.replace(self.old, self.new)
+        self.nSubstituted += int(text != new_text)
+        self.sink.on_input(new_text)
+    def __del__(self):
+        if self.nSubstituted != self.expected_count:
+            print("WARNING: Wrong number of substitution for " + self.old + " ( nSubstitutions = " + str(self.nSubstituted) + " while expected = " + str(self.expected_count) + ")\n")
 
 class POEntryGeneratorSink:
     def __init__(self, file_name):

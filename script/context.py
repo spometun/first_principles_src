@@ -17,15 +17,20 @@ LANGUAGES_JS = "/languages.js"
 JS = "/js"
 EN = "/en"
 STUDIES_FILE = "/studies_list.json"
+POEDITOR_IMPROVE_TRANSLATION_ID = "improve_translation_url"
+POEDITOR_PROJECT_URL = "https://poeditor.com/projects/po_edit?id=106095"
+POEDITOR_LANGUAGE_ID_FILE = "poeditor_id.json"
 
 
 STUDY_LIST = []
+STUDY_TAGS = {}
 Study = namedtuple("Study", "name title")
 
 with open(ROOT + SRC + WWW + STUDIES_FILE) as data:
     studies = json.load(data)
 for name in studies:
-    STUDY_LIST.append(Study(name, studies[name]))
+    STUDY_LIST.append(Study(name, studies[name]["title"]))
+    STUDY_TAGS[name] = studies[name]["poeditor_tag"]
     STUDY_LIST.sort()
     
 LANGUAGES_LIST = []
