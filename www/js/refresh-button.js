@@ -10,8 +10,6 @@ window.addEventListener('load',  () => {
     button.siblings('.ui-btn-inner').find('.ui-btn-text').text(text)
   );
 
-  $(document).ready(() => $('#refresh-button').closest('.ui-btn').show());
-
   const { language } = CUR_LANGUAGE;
   const refreshButton = $('#refresh-button');
   refreshButton.bind('click', () => {
