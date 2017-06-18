@@ -1,6 +1,6 @@
 window.addEventListener('load',  () => {
   const OK_RESPONSE = 'ok';
-  const TOO_LONG_ERROR = 'update is too long';
+  const TOO_LONG_ERROR = 'Looks like something went wrong. Update timeout. Try to reload page (press F5)';
   const REFRESH_BUTTON_TEXT = 'Refreshing translation';
   const REFRESH_BUTTON_REFRESHING_TEXT = 'Refreshing...';
 
