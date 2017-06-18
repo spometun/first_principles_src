@@ -1,0 +1,34 @@
+<!DOCTYPE html> 
+<html>
+
+	<script type="text/javascript" src="../../jquery/jquery-1.7.2.min.js"></script> 
+  <script type="text/javascript" src="../../jquery/jquery.mobile-1.1.0.min.js"></script> 
+
+  <!-- Both next are needed for #language-select -->
+	<script type="text/javascript" src="../../js/languages.js"></script> 
+	<script type="text/javascript" src="../../js/utils.js"></script> 
+	<script type="text/javascript" src="../../js/language-select.js"></script> 
+	<script type="text/javascript" src="../../js/set-audio-source.js"></script> 
+
+<title>study_title</title> 
+
+<head> 
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+	<meta charset="utf-8"> 
+	<link rel="stylesheet" type="text/css" href="../../style.css" /> 
+	<link rel="stylesheet" type="text/css" href="../../jquery/jquery.mobile-1.1.0.min.css" /> 
+</head> 
+
+<body> 
+	<div data-role="header" data-theme="b"> 
+		<h1>study_header</h1> 
+		<a href="./00_index.html" rel = "external" data-icon="home" data-iconpos="notext" data-direction="reverse">_("Home")</a> 
+    <div id="language-select"></div>
+		<div class="usd21audio">
+		  <audio controls="controls">
+		  	<source id = "audio_link_mp3" type="audio/mpeg"/>
+		  </audio>
+		</div>
+	</div> 
+
+
