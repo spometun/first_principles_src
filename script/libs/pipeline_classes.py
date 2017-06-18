@@ -59,9 +59,9 @@ class SubstitutorSinkSource:
         new_text = text.replace(self.old, self.new)
         self.nSubstituted += int(text != new_text)
         self.sink.on_input(new_text)
-    def __del__(self):
-        if self.nSubstituted != self.expected_count:
-            print("WARNING: Wrong number of substitution for " + self.old + " ( nSubstitutions = " + str(self.nSubstituted) + " while expected = " + str(self.expected_count) + ")\n")
+    # def __del__(self):
+        # if self.nSubstituted != self.expected_count:
+            # print("WARNING: Wrong number of substitution for " + self.old + " ( nSubstitutions = " + str(self.nSubstituted) + " while expected = " + str(self.expected_count) + ")\n")
 
 class POEntryGeneratorSink:
     def __init__(self, file_name):
