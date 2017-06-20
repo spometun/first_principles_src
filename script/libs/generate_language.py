@@ -22,7 +22,7 @@ def generate_language(language, dst_folder):
     src_studies = dst_folder + TEMPLATE + WWW + STUDIES + ENGLISH_TEMPLATE
     dst_studies = dst_folder + WWW + STUDIES
 
-    poFile = polib.pofile(ROOT + LANG + "/" + language + "/LC_MESSAGES/" + FP_DOMAIN + ".po")
+    poFile = polib.pofile(ROOT + LANG + "/" + language + LC_MESSAGES + "/" + FP_DOMAIN + ".po")
     translator = TranslatorSinkSource(poFile)
 
     recreate_dir(dst_studies + "/" + language)

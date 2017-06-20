@@ -20,6 +20,9 @@ STUDIES_FILE = "/studies_list.json"
 POEDITOR_IMPROVE_TRANSLATION_ID = "improve_translation_url"
 POEDITOR_PROJECT_URL = "https://poeditor.com/projects/po_edit?id=106095"
 POEDITOR_LANGUAGE_ID_FILE = "poeditor_id.json"
+LC_MESSAGES = "/LC_MESSAGES"
+FLAG_FILE_NAME = "flag.png"
+
 
 
 STUDY_LIST = []
