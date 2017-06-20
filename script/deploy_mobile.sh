@@ -5,7 +5,7 @@ if [ "$#" != 0 ]; then
 fi
 
 DST=../../mobile
-./0_generate_templates.py $DST mobile
-./1_generate_app.py $DST
-./2_update_translations.py $DST
-rm -r $DST/template
+./0_generate_pot.py
+./1_generate_app.py $DST mobile
+./2_update_translation.py $DST mobile all
+

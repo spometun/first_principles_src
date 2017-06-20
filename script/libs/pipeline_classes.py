@@ -48,12 +48,18 @@ class WriterSink:
         self.file.write(text)
     def __del__(self):
         self.file.close()
+        
+class StringWriterSink:
+    def __init__(self):
+        self.text = ''
+    def on_input(self, text):
+        self.text += text
+            
 
 class SubstitutorSinkSource:
-    def __init__(self, old_sub_str, new_sub_str, expected_count):
+    def __init__(self, old_sub_str, new_sub_str):
         self.old = old_sub_str
         self.new = new_sub_str
-        self.expected_count = expected_count
         self.nSubstituted = 0
     def on_input(self, text):
         new_text = text.replace(self.old, self.new)
@@ -62,6 +68,7 @@ class SubstitutorSinkSource:
     # def __del__(self):
         # if self.nSubstituted != self.expected_count:
             # print("WARNING: Wrong number of substitution for " + self.old + " ( nSubstitutions = " + str(self.nSubstituted) + " while expected = " + str(self.expected_count) + ")\n")
+
 
 class POEntryGeneratorSink:
     def __init__(self, file_name):
@@ -107,7 +114,7 @@ class TranslatorSinkSource:
         self.sink.on_input(translated_text)
 
 
-class POFileGeneratorSink:
+class POListGeneratorSink:
     def __init__(self):
         self.pot = []
     def on_input(self, data):

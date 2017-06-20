@@ -142,9 +142,6 @@ write_flags()
 
 print("\n" + str(len(STUDY_LIST)) + " studies processed")
 
-#with open('logs.txt', 'a') as f:
-#    datetime_str = datetime.datetime.now().strftime('%Y-%m-%d|%H:%M:%S: ')
-#    f.write(datetime_str + 'Teplate generation\n');
     
     
 
