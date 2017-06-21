@@ -19,7 +19,8 @@ if not os.path.isdir(DST_FOLDER):
 dst_path = DST_FOLDER
 src_path = ROOT + SRC
 recreate_dir(dst_path)
-  
+
+os.system('rm -rf ' + dst_path + WWW)
 shutil.copytree(src_path + WWW, dst_path + WWW)
 os.remove(dst_path + WWW + STUDIES_FILE)
 recreate_dir(dst_path + WWW + STUDIES)
@@ -29,6 +30,7 @@ with open(dst_path + WWW + JS + LANGUAGES_JS, 'w') as ofile:
     with open(ROOT + LANGUAGES_FILE) as ifile:
         ofile.write(ifile.read())
 if not IS_MOBILE:
+    os.system('rm -rf ' + dst_path + '/api')
     os.system('mkdir -m 755 ' + dst_path + '/api')
     os.system('cp -r ../server/*.php ' + dst_path + '/api')
     os.system('chmod 644 ' + dst_path + '/api/*.php')
