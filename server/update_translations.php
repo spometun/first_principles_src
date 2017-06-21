@@ -1,8 +1,6 @@
 <?php
 $SLEEP_INTERVAL = 0.5;
 $MAX_WAITING_TIME = 20;
-$OK_RESPONSE = 'ok';
-$TOO_LONG_ERROR = 'update is too long';
 
 $start_waiting_time = time();
 $LANG = $_GET['lang'];
