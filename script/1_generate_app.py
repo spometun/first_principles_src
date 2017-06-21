@@ -34,7 +34,7 @@ if not IS_MOBILE:
     os.system('cp -r ../server/*.php ' + dst_path + '/api')
     os.system('chmod 644 ' + dst_path + '/api/*.php')
     os.system('touch ' + dst_path + '/api/last_update')
-    os.system('pwd > ' + dst_path + '/api/src_path.txt')
+    os.system('pwd > ' + dst_path + '/api/script_path.txt')
     os.system('cp ../server/index.html ' + dst_path)
     
 
