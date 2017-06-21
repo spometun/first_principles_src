@@ -18,7 +18,6 @@ if not os.path.isdir(DST_FOLDER):
 
 dst_path = DST_FOLDER
 src_path = ROOT + SRC
-recreate_dir(dst_path)
 
 os.system('rm -rf ' + dst_path + WWW)
 shutil.copytree(src_path + WWW, dst_path + WWW)
