@@ -26,6 +26,7 @@ else:
     languages = LANGUAGES_LIST
 
 for lang in languages:
-    generate_language(lang, DST_FOLDER, is_mobile)
+    is_show_update_controls = not is_mobile if lang != 'en' else False
+    generate_language(lang, DST_FOLDER, is_show_update_controls)
 
 

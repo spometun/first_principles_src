@@ -1,7 +1,7 @@
 window.addEventListener('load',  () => {
   const OK_RESPONSE = 'ok';
-  const TOO_LONG_ERROR = 'Looks like something went wrong. Update timeout. Try to reload page (press F5)';
-  const REFRESH_BUTTON_TEXT = 'Refreshing translation';
+  const TOO_LONG_ERROR = 'Update timeout. Looks like something went wrong. Try to reload page (press F5)';
+  const REFRESH_BUTTON_TEXT = 'Refresh translation (' + CUR_LANGUAGE.language + ')';
   const REFRESH_BUTTON_REFRESHING_TEXT = 'Refreshing...';
 
   const updateContentURL = '../../../api/update_translations.php?lang=' + CUR_LANGUAGE.language;

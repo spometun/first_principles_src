@@ -38,7 +38,7 @@ with open(ROOT + LANGUAGES_FILE) as languages_file:
         with open(ROOT + LANGUAGES_FILE, 'w') as outfile:
             json.dump(languages_list, outfile)
 
-print('Lanugage ' + language + 'added')
+print('Lanugage [' + language + '] added')
 print('Do not forget to push lang/ repository!')
 
   

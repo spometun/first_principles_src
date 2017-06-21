@@ -35,4 +35,11 @@ if not IS_MOBILE:
     os.system('touch ' + dst_path + '/api/last_update')
     os.system('pwd > ' + dst_path + '/api/src_path.txt')
     os.system('cp ../server/index.html ' + dst_path)
+    
+
+flag_img_folder = DST_FOLDER + WWW + "/images/flags"
+recreate_dir(flag_img_folder)
+for lang in LANGUAGES_LIST:
+    shutil.copy(ROOT + LANG + "/" + lang + "/" + FLAG_FILE_NAME, flag_img_folder + "/" + lang + ".png");
+
 

@@ -11,9 +11,9 @@ from libs.utils import *
 
 ENCODING = "UTF-8"
 
-def generate_study_template(study, is_mobile):
+def generate_study_template(study, is_show_update_controls):
     studies_folder = ROOT + SRC + WWW + "/studies"
-    header_filename = "header_mobile.html" if is_mobile else "header_web.html"
+    header_filename = "header_web.html" if is_show_update_controls else "header_mobile.html"
     study_filename = studies_folder + "/english/" + study.name + ".html"
 	
     header_file = open(studies_folder + "/" + header_filename, "r", encoding = ENCODING)
@@ -67,7 +67,7 @@ def translate_template(template, comment_file_name, translator, substitutor):
     return stringWriter.text
     
 
-def generate_language(language, dst_folder, is_mobile):
+def generate_language(language, dst_folder, is_show_update_controls):
     print("Generating language [" + language + "]", end = '')
     dst_studies = dst_folder + WWW + STUDIES
 
@@ -83,7 +83,7 @@ def generate_language(language, dst_folder, is_mobile):
         poeditor_url = get_poeditor_url(language, study.name)
         substitutor = SubstitutorSinkSource(POEDITOR_IMPROVE_TRANSLATION_ID, poeditor_url)
 
-        template = generate_study_template(study, is_mobile)
+        template = generate_study_template(study, is_show_update_controls)
         comment_file_name = study.name + '.html'
         translated = translate_template(template, comment_file_name, translator, substitutor)
         with open(dst_studies + "/" + language + "/" + study.name + ".html", "w", encoding = ENCODING) as out_file:
