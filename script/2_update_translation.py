@@ -12,6 +12,7 @@ if len(sys.argv) != 4 or (sys.argv[2] != "mobile" and sys.argv[2] != "web"):
     sys.exit()
 
 is_mobile = sys.argv[2] == 'mobile'
+is_web = not is_mobile
 
 DST_FOLDER = sys.argv[1]
 if not os.path.isdir(DST_FOLDER):
@@ -19,14 +20,13 @@ if not os.path.isdir(DST_FOLDER):
     sys.exit()
 
 
-languages = []
 if sys.argv[3] != 'all':
-    languages.append(sys.argv[3])
+    languages = [sys.argv[3]]
 else:
     languages = LANGUAGES_LIST
 
 for lang in languages:
-    is_show_update_controls = not is_mobile if lang != 'en' else False
+    is_show_update_controls = lang != 'en' and is_web 
     generate_language(lang, DST_FOLDER, is_show_update_controls)
 
 
