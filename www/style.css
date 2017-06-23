@@ -134,13 +134,28 @@ span.jesuswords {
 	color: #cc0000;	
 }
 
-#language-select img {
-  margin: 2px;
-}
-
 div[data-role="header"] .text-link:link,
 div[data-role="header"] .text-link:visited,
 div[data-role="header"] .text-link:hover,
 div[data-role="header"] .text-link:active {
   color: white;
+}
+
+#language-select {
+  margin-left: 5px;
+  margin-top: 20px;
+}
+
+#language-select img {
+  margin: 2px;
+}
+
+#header_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#header_header > .buttons {
+  margin: 5px;
 }

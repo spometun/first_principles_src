@@ -22,11 +22,16 @@
 <body>
   <div data-role="page">
     <div data-role="header" data-theme="b">
-      <h1>study_header</h1>
       <a href="./00_index.html" rel="external" data-icon="home" data-iconpos="notext">_("Home")</a>
-      <button id="refresh-button">Refresh translation</button>
-      <span><a href="improve_translation_url" class="text-link" target="_blank">Improve translation</a></span>
-      <div id="language-select"></div>
+      <div id="header_header">
+        <div id="language-select"></div>
+        <h1>study_header</h1>
+        <div class="buttons">
+          <button id="refresh-button">Refresh translation</button>
+          <br>
+          <button><a href="improve_translation_url" class="text-link" target="_blank">Improve translation</a></button>
+        </div>
+      </div>
       <div class="usd21audio">
         <audio controls="controls" id="audio" style="display:audio_controls_display">
           audio_sources
