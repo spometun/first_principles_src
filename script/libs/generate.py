@@ -3,6 +3,7 @@ import errno
 import sys
 import gettext
 import json
+import os
 import polib
 import shutil
 from context import *
@@ -51,16 +52,32 @@ def get_poeditor_url(language, study_name):
         study_name = str(STUDY_TAGS[study_name])
         return POEDITOR_PROJECT_URL + "&id_language=" + language_id + "&tags%5B%5D=" + study_name
 
+def get_audio_sources(dst_folder, language, study_name):
+    res = []
+    for ext in AUDIO_EXTENSIONS:
+        dir = os.path.join(os.path.abspath(dst_folder), AUDIO, language)
+        filename = study_name + "." + ext
+        filepath = os.path.join(dir, filename)
+        if os.path.isfile(filepath):
+            link = '../../../audio/' + language + '/' + filename
+            mime = AUDIO_MIME_TYPES[ext]
+            res.append([mime, link])
+    return res
 
-def translate_template(template, comment_file_name, translator, substitutor):
+def translate_template(template, comment_file_name, translator, substitutors):
     parser = ParserSource(template, '_("', '")')
     dispatcher = DispatcherSinkSource()
     parser.sink = dispatcher
     dispatcher.processor = POEntryGeneratorSink(comment_file_name)
     dispatcher.sink = translator
-    translator.sink = substitutor
     stringWriter = StringWriterSink()
-    substitutor.sink = stringWriter
+
+    last_sink = stringWriter
+    for substitutor in reversed(substitutors):
+        substitutor.sink = last_sink
+        last_sink = substitutor
+    translator.sink = last_sink
+
     translator.nMissed = 0
     translator.nTerms = 0
     parser.go()
@@ -81,11 +98,25 @@ def generate_language(language, dst_folder, is_show_update_controls):
 #        print(study.name, end = '')
 
         poeditor_url = get_poeditor_url(language, study.name)
-        substitutor = SubstitutorSinkSource(POEDITOR_IMPROVE_TRANSLATION_ID, poeditor_url)
+        implement_translation_substitutor = SubstitutorSinkSource(POEDITOR_IMPROVE_TRANSLATION_ID, poeditor_url)
+
+        audio_sources = get_audio_sources(dst_folder, language, study.name)
+        audio_sources_html = ""
+        for [mime, link] in audio_sources:
+            audio_sources_html += '<source type="' + mime + '" src="' + link + '"/>'
+        audio_sources_substitutor = SubstitutorSinkSource(AUDIO_SOURCES_ID, audio_sources_html)
+
+        display_text = "none" if len(audio_sources) == 0 else ""
+        audio_controls_display_substitutor = SubstitutorSinkSource(AUDIO_CONTROLS_DISPLAY_ID, display_text)
 
         template = generate_study_template(study, is_show_update_controls)
         comment_file_name = study.name + '.html'
-        translated = translate_template(template, comment_file_name, translator, substitutor)
+        substitutors = [
+            implement_translation_substitutor,
+            audio_sources_substitutor,
+            audio_controls_display_substitutor
+        ]
+        translated = translate_template(template, comment_file_name, translator, substitutors)
         with open(dst_studies + "/" + language + "/" + study.name + ".html", "w", encoding = ENCODING) as out_file:
             out_file.write(translated)
 
