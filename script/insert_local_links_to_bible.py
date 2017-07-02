@@ -28,21 +28,15 @@ FILES = [
     "22_contact_us.html",        
         ]
 
-BOOKS = [
-    "Psalm",
-    "Matthew",
-        ]
-
 def insert_links(text):
-    for book in BOOKS:
-        index = text.find(book)
-        while index != -1:
-            href_index = text.rfind('href="', 0, index)
-            link_index = href_index + len('href="')
-            link_end_index = text.find('"', link_index)
-            new_link = text[link_index:link_end_index].replace("-", "_")
-            text = text[:link_index] + new_link + text[link_end_index:]
-            index = text.find(book, index + 1)
+    SCRIPTURES_PATTERN = 'href="scriptures/'
+    href_index = text.find(SCRIPTURES_PATTERN)
+    while href_index != -1:
+        book_index = href_index + len(SCRIPTURES_PATTERN)
+        book_end_index = text.find('"', book_index)
+        new_book = text[book_index:book_end_index].replace("-", "_")
+        text = text[:book_index] + new_book + text[book_end_index:]
+        href_index = text.find(SCRIPTURES_PATTERN, href_index + 1)
     return text
 
 for filename in FILES:
