@@ -39,6 +39,8 @@ with open(ROOT + LANGUAGES_FILE) as languages_file:
             json.dump(languages_list, outfile)
 
 print('Lanugage [' + language + '] added to lang/\nTo finish adding language you need:')
-print("1. Commit and push lang/ repository\n2. Go to poeditor.com and integrate " + language + "/LC_MESSAGES/" + FP_DOMAIN + ".po to poeditor")
+print('1. Commit and push lang/ repository')
+print('2. Go to poeditor.com and integrate ' + language + '/LC_MESSAGES/' + FP_DOMAIN + '.po to poeditor')
+print('3. Deploy changes')
 
   
