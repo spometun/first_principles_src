@@ -5,6 +5,7 @@ from collections import namedtuple
 ROOT = "../.."
 WWW = "/www"  # do not change, used by cordova (?)
 LANG = "/lang"  # do not change, used by gettext (?)
+SCRIPTURES = "/scriptures"
 API = "/api"
 SRC = "/src"
 ENGLISH_TEMPLATE = "/english_template"

@@ -1,7 +1,13 @@
 #!/usr/bin/env python3
 import os
+import sys
 
-SCRIPTURES_DIR = "../www/studies/english/scriptures"
+if len(sys.argv) != 1:
+    print('Usage: {} <language>'.format(sys.argv[0]))
+    sys.exit()
+
+LANGUAGE = sys.argv[1]
+SCRIPTURES_DIR = ROOT + LANG + SCRIPTURES + "/" + LANGUAGE
 USD21_LINK = "http://www.usd21.org/"
 
 def get_link(text):

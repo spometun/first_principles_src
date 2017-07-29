@@ -74,7 +74,12 @@ def generate_language(language, dst_folder, is_show_update_controls):
     poFile = polib.pofile(ROOT + LANG + "/" + language + LC_MESSAGES + "/" + FP_DOMAIN + ".po")
     translator = TranslatorSinkSource(poFile)
 
-    recreate_dir(dst_studies + "/" + language)
+    dst_language = dst_studies + "/" + language
+    recreate_dir(dst_language)
+    src_verses = ROOT + LANG + SCRIPTURES + "/" + language
+    if os.path.exists(src_verses):
+        shutil.copytree(src_verses, dst_language + SCRIPTURES)
+
     nMissedTotal = 0
     nTermsTotal = 0
     for study in STUDY_LIST:
@@ -86,7 +91,7 @@ def generate_language(language, dst_folder, is_show_update_controls):
         template = generate_study_template(study, is_show_update_controls)
         comment_file_name = study.name + '.html'
         translated = translate_template(template, comment_file_name, translator, substitutor)
-        with open(dst_studies + "/" + language + "/" + study.name + ".html", "w", encoding = ENCODING) as out_file:
+        with open(dst_language + "/" + study.name + ".html", "w", encoding = ENCODING) as out_file:
             out_file.write(translated)
 
         nTerms = translator.nTerms
