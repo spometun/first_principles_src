@@ -14,7 +14,8 @@
 
  <icon src="images/mobile/icon512x512.png" />
 
- <plugin name="org.apache.cordova.splashscreen" source="npm" />	
+ <!--plugin name="org.apache.cordova.splashscreen" source="npm" /-->	
+ <plugin name="cordova-plugin-splashscreen" value="CDVSplashScreen"/>
  <preference name="SplashScreenDelay" value="4000" />
  <preference name="SplashShowOnlyFirstTime" value="false" />
  <splash src="images/mobile/splash768x1024.png"/>
