@@ -17,14 +17,12 @@ window.addEventListener('load',  () => {
       response.text().then(text => {
         console.log(text);
         switch (text) {
-          case OK_RESPONSE: {
-            location.reload();
-          } break;
           case TOO_LONG_ERROR: {
             changeButtonText(refreshButton, REFRESH_BUTTON_TEXT);
             alert(text);
           } break;
         }
+        location.reload();  
       })
     );
     changeButtonText(refreshButton, REFRESH_BUTTON_REFRESHING_TEXT);
